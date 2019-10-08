@@ -1,0 +1,13 @@
+{
+    "name": "vendor/ithenticate",
+    "description": "Description of project Ithenticate.",
+    "authors": [
+        {
+            "name": "Dragoljub",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "bsobbe/ithenticate": "dev-master"
+    }
+}

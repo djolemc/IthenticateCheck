@@ -1,0 +1,112 @@
+.login {
+    position: absolute;
+    padding: 0;
+    margin: 0 !important;
+    height: 100vh;
+    width: 100vw;
+    background-image:url("../images/login_background.jpg");
+    z-index: -20;
+}
+
+#login_form {
+    position: relative;
+    height: 300px;
+    /*border: 1px solid black;*/
+    width: 350px;
+    margin: 0 auto;
+    margin-top: calc(50vh - 200px);
+
+}
+
+#login_form .userpass {
+    border: none;
+    position: relative;
+    margin: 0 auto;
+    width: 350px;
+    height: 50px;
+    border-radius: 50px;
+    padding-left: 30px;
+}
+
+#login_form .userpass:focus {
+    box-shadow: 0px 0px 15px 5px darkslateblue;
+    outline: none;
+}
+
+
+#login_form .submit {
+    background-color: darkslategray;
+    border: none;
+    position: relative;
+    margin: 0 auto;
+    width: 350px;
+    height: 50px;
+    margin-top: 50px;
+    border-radius: 50px;
+    color: white;
+}
+
+#login_form .submit:hover {
+    box-shadow: 0px 0px 15px 5px white;
+    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,98,1) 25%, rgba(0,212,255,1) 100%);*/
+    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(7,54,150,1) 15%, rgba(0,206,251,1) 46%, rgba(9,11,121,1) 100%);*/
+}
+
+
+#login_form input {
+    font-family: FontAwesome;
+    font-weight: 700;
+    font-size:20px;
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+
+.fa-user-circle {
+    color:white;
+    left:125px;
+    top:-50px;
+   font-size: 100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.fa-user-circle:hover {
+    /*color: white;*/
+    color: black;
+}
+
+#msg {
+    display: block;
+    position: relative;
+    /*font-family: Calibri;*/
+    margin: 0 auto;
+    width: 350px;
+    height: 50px;
+
+   top: 20px;
+    color:red;
+    font-weight: 500;
+    background: darkslategray;
+   /*background: greenyellow;*/
+    padding: 12px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#login_frame {
+    margin-top:calc(50vh - 300px); ;
+    margin-left:calc(50vw - 220px); ;
+    position: fixed;
+display: block;
+    /*border: 1px solid black;*/
+    width: 440px;
+    /*margin-top: calc(50vh - 300px);*/
+    height: 540px;
+    background-color: rgba(32, 38, 44, 0.5);
+    z-index: -10;
+
+}
+
