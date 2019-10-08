@@ -1,0 +1,55 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll !important;
+}
+
+.mail_send {
+    border: 1px solid lightgray;
+    width:830px;
+    margin-left:8px;
+}
+#span_to {
+    margin-right: 36px;
+}
+
+#za_slanje {
+
+    padding: 30px;
+   margin-left: 100px;
+}
+
+.mail_forma {
+    box-sizing: content-box;
+    position: relative;
+    /*max-width: 60%;*/
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: lightgray;
+    padding: 20px;
+    min-height:410px;
+
+
+}
+
+.mail_button {
+    float: right;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #6a9eb8;
+    color: white;
+}
+.mail_button:hover {
+    background: #6a9eb8;
+}
+
+.mail_forma p {
+ position: relative;
+    top:-10px;
+    margin-bottom: 0;
+}
+.mail_forma p span {
+    font-weight: 600;
+    margin-right: 10px;
+}

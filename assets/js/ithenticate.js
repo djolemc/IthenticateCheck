@@ -170,3 +170,4 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
 
     });
 }
+

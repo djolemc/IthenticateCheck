@@ -25,11 +25,14 @@ class SendMail {
     
     public function __construct($mail_data) {
         $this->journal = $mail_data['data'][0];
-        $this->mail_to = $mail_data['data'][1];
+//        $this->mail_to = $mail_data['data'][1];
+        $this->mail_to = 'dragoljub@ceon.rs';
 
         if ($this->mail_to != 'Časopis nema otvorene parametre za pristup iThenticate-u') {
-            $this->ithenticateUser = $mail_data['data'][3];
-            $this->ithenticatePass = $mail_data['data'][2];
+//            $this->ithenticateUser = $mail_data['data'][3];
+            $this->ithenticateUser = 'proba';
+//            $this->ithenticatePass = $mail_data['data'][2];
+            $this->ithenticatePass = 'proba';
             $this->mail_send = true;
         }
 
@@ -52,7 +55,7 @@ class SendMail {
         $body .= '<li>za Password: <strong>'.$this->ithenticatePass.'</strong></li>';
         $body.='</ul>';
         $body.='<br>';
-        $body.='S poštovanjem,';
+        $body.='S poštovanjem, ';
         $body.='Razvojni tim SCIndeksa';
 
 
@@ -72,10 +75,9 @@ class SendMail {
     }
 
     
-    function send() {
-       mail($this->mail_to, $this->subject, $this->mailBody, $this->headers);
-        
-    }
+    public function send($mail_to, $subjext, $mailBody, $headers) {
+       mail($mail_to, $subjext, $mailBody, $headers);
+            }
     
     
 }

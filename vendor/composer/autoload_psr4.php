@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'bsobbe\\ithenticate\\' => array($vendorDir . '/bsobbe/ithenticate'),
     'PhpXmlRpc\\' => array($vendorDir . '/phpxmlrpc/phpxmlrpc/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
 );

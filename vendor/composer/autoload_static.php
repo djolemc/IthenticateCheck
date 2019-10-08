@@ -14,6 +14,7 @@ class ComposerStaticInit08acbb28447c6d9d559ee89cdabd7092
         'P' => 
         array (
             'PhpXmlRpc\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
     );
 
@@ -25,6 +26,10 @@ class ComposerStaticInit08acbb28447c6d9d559ee89cdabd7092
         'PhpXmlRpc\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpxmlrpc/phpxmlrpc/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 
