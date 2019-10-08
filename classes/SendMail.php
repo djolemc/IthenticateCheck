@@ -20,6 +20,7 @@ class SendMail {
     public $ithenticatePass;
     public $mailBody;
     public $headers;
+    public $bcc = "djole@ceon.rs";
     public $mail_send = false;
     
     

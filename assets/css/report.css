@@ -1,0 +1,38 @@
+.result {
+    font-size: 13px;
+    font-family: Arial;
+}
+
+.table_data {
+    border: 1px solid black;
+    background-color: #b7e1cd;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#jtitle {
+    font-weight: bold;
+}
+
+#select_table {
+    float: right;
+    width: 150px;
+    margin-right: 100px;
+    margin-top: 30px;
+    padding: 5px 10px;
+    background: #6a9eb8;
+    color: white;
+}
+
+#select_table:hover {
+    background: slategrey;
+}
+
+#rez_prov {
+    margin-top: 20px;
+    margin-left: 100px;
+}

@@ -16,7 +16,7 @@
                 <a class="nav-link active" href="mail.php">E-mail</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="izvestaj.php">Izveštaj</a>
+                <a class="nav-link active" href="report.php">Izveštaj</a>
             </li>
         </ul>
         <?php if ($_SESSION['is_logged_in']==true) : ?>

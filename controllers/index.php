@@ -81,136 +81,136 @@ function probna2()
             "ithenticate_id" => 2345563,
             "journal_issn" => '1452-7405'
         ),
-        array(
-            "journal_title" => 'Sintez333e',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 05",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Sintez333e',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 020",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Sinteze',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 2",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '0085-6320'
-        ),
-        array(
-            "journal_title" => 'Sinteze',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 3",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '0085-6320'
-        ),
-        array(
-            "journal_title" => 'Ekonomika Preduzeca',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Sinteze',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 1",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '0085-6320'
-        ),
-        array(
-            "journal_title" => 'Sintez333e',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 01",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 02",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 05",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 020",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        array(
-            "journal_title" => 'Sinteze',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 2",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '0085-6320'
-        ),
-        array(
-            "journal_title" => 'Sinteze',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 3",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '0085-6320'
-        ),
-        array(
-            "journal_title" => 'Ekonomika Preduzeca',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
+        //array(
+//            "journal_title" => 'Sintez333e',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 05",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Sintez333e',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 020",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Sinteze',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 2",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '0085-6320'
+//        ),
+//        array(
+//            "journal_title" => 'Sinteze',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 3",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '0085-6320'
+//        ),
+//        array(
+//            "journal_title" => 'Ekonomika Preduzeca',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Sinteze',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 1",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '0085-6320'
+//        ),
+//        array(
+//            "journal_title" => 'Sintez333e',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 01",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 02",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 05",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Srpski arhiv za celokupno lekarstvo',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 020",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
+//            "journal_title" => 'Sinteze',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 2",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '0085-6320'
+//        ),
+//        array(
+//            "journal_title" => 'Sinteze',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 3",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '0085-6320'
+//        ),
+//        array(
+//            "journal_title" => 'Ekonomika Preduzeca',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
     ];
     $arr = [];
     foreach ($rows as $row) {

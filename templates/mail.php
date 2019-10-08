@@ -42,6 +42,10 @@ foreach ($mailObjects as $mail): ?>
 <?php endforeach;?>
 </div>
 
+
+<?php include '../includes/footer.php'; ?>
+
+
 <script>
     tinymce.init({
         selector: '.mytextarea'
@@ -62,7 +66,7 @@ foreach ($mailObjects as $mail): ?>
 
 
 
-                    alert (response);
+                    console.log (response);
                    // location.reload();
                 }
             });
