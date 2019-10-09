@@ -1,3 +1,5 @@
+//Selektuje sve elemente u tabeli Izvestaj
+
 function selectElementContents(el) {
     var body = document.body, range, sel;
     if (document.createRange && window.getSelection) {

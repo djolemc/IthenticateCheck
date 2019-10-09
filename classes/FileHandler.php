@@ -6,6 +6,7 @@
  * Date: 10/1/2019
  * Time: 10:49 AM
  * Load most current file(s) from server
+ * todo Napisati klasu
  */
 class FileHandler
 {

@@ -1,8 +1,11 @@
 <?php
-
+/*
+ * TODO  srediti fajl
+ */
 
 require '../config/init.php';
-require __DIR__ . '../../vendor/autoload.php';
+require '../vendor/autoload.php';
+
 use bsobbe\ithenticate\Ithenticate;
 error_reporting(0);
 ini_set('max_execution_time', 0);
@@ -73,6 +76,7 @@ echo $template;
 
 
 
+//LISTA SVIH FOLDERA
 //$ith = new Ithenticate($user,$pass);
 
 //var_dump($ith);

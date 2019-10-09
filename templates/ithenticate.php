@@ -12,14 +12,14 @@ include '../includes/nav_menu.php';
 //    }
 
 ?>
-<div id="example"></div>
+<!--<div id="example"></div>-->
 
 <div class="row">
     <div class="col-md-10 rezultat">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-        <h3>Sending files to Ithenticate...</h3>
+        <h3>Šaljem dokumente na Ithenticate proveru...</h3>
         <h5 id="sending"></h5>
 
 
@@ -27,7 +27,7 @@ include '../includes/nav_menu.php';
 
         </div>
 
-        <input type="button" class="spinner-border" id="ucitaj" value="Refresh status">
+        <input type="button" class="spinner-border" id="ucitaj" value="Osveži status">
 
     </div>
 </div>

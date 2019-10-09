@@ -13,6 +13,7 @@
 <script src="../assets/js/script.js"></script>
 <script src="../assets/js/ithenticate.js"></script>
 <script src="../assets/js/report.js"></script>
+<script src="../assets/js/mail.js"></script>
 
 
 </body>

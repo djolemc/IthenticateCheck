@@ -1,10 +1,15 @@
 <?php require '../config/init.php';
+
 require __DIR__ . '../../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 
+/*
+ * todo  prebaciti PHPMailer podesavanja u config, srediti fajl
+ *
+ */
 
 
 //print_r($_POST);
@@ -18,11 +23,18 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->CharSet = 'UTF-8';
-    $mail->isSMTP();
+   // $mail->isSMTP();
     $mail->Host = 'localhost';
+    //$mail->Host = 'ceesprod.mysafeservers.com';
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
+    //$mail->Port = 587;
+    //$mail->Username   = 'djole@test.ceesprod.mysafeservers.com';                     // SMTP username
+    //$mail->Password   = 'HIQ6WmRVQ3';
+
     $mail->Port = 25;
+
+
 
 $mail->setFrom('djole@example.com', 'Probni mail');
 
@@ -42,7 +54,7 @@ $mail->Subject = $subject;
 $mail->isHTML(true);
 $mail->Body    = $message_body;
 
-var_dump($mail);
+//var_dump($mail);
 
 $mail->send();
 

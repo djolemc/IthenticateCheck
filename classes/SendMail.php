@@ -10,6 +10,7 @@
  * Description of SendMail
  *
  * @author Dragoljub
+ *
  */
 class SendMail {
 
@@ -63,7 +64,7 @@ class SendMail {
         $this->mailBody = $body;
 
     }
-
+//ne koristi se za PHP mailer
     function createHeaders() {
 
         $headers = "MIME-Version: 1.0" . "\r\n";
@@ -79,7 +80,7 @@ class SendMail {
     public function send($mail_to, $subjext, $mailBody, $headers) {
        mail($mail_to, $subjext, $mailBody, $headers);
             }
-    
+//
     
 }
 

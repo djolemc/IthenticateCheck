@@ -112,7 +112,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
 
                     i++;
-                    if (i == length + 1) {
+                    if (i == (length + 1)) {
                         i = 0
                     }
                     $(this).siblings('button').attr("href", (files_array[i]));
@@ -137,6 +137,8 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     $(this).siblings('button').attr("href", (files_array[i]));
                     $(this).siblings('button').attr("id", (i));
                     (($(this).siblings('.filename').children('input').attr('value', files_array[i])));
+
+                 //todo popraviti prikaz pojedinacnog imena dokumenta
                     $('.proba').html('Ime dokumenta: '+ files_array[i]);
 
                 });
@@ -154,7 +156,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 }
 
 
-//Brise rad iz forme koji ne treba da s esalje na proveru
+//Brise rad iz forme koji ne treba da se salje na proveru
 
 function deleteX(obj) {
    if (confirm('Da li ste sigurni da želite da obrišete ovaj fajl?')) {
@@ -180,6 +182,8 @@ function countDivs() {
     }
 }
 
+
+//logout funkcija
 $(document).ready(function () {
     $('#logout').bind("click", function () {
         $.ajax({
@@ -187,8 +191,8 @@ $(document).ready(function () {
             type: 'post',
             data: 'logout',
             success: function (response) {
-                console.log('kliknuo!');
-                window.location.href = response;
+                console.log(response);
+               window.location.href = response;
             }
         });
     });

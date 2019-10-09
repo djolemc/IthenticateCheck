@@ -5,6 +5,13 @@
 
 <?php
 
+
+/*
+ * TODO napisati upit za bazu, obrisati fake podatke i testove za konekcije
+ *
+ */
+
+
 //phpinfo();
 
 //$con1 = new Database(DB_HOST,DB_USER,DB_PASS,DB_NAME,DRIVER);
