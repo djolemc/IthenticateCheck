@@ -16,7 +16,7 @@ $(function () {
             success: function (response) {
 
 
-                console.log(response);
+                alert(response);
                 // location.reload();
             }
         });
@@ -25,10 +25,11 @@ $(function () {
     });
 
     $('input[type=submit]').click(function () {
-        $(this).prop("disabled", true);
+        $(this).prop({
+            disabled: true,
+            value: "Poslato"
+        });
         $(this).css("background", 'gray');
-        $(this).prop("value", "Poslato");
-
         $(this).closest('form').trigger('submit');
 
 

@@ -96,35 +96,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     i = 1;
                     length = files_array.length;
 
-                    $('.nf').bind("click", function () {
-                        i = $(this).siblings('button').attr("id");
-                        i++;
-                        if (i == length) {
-                            i = 0
-                        }
-                        $(this).siblings('button').attr("href", (files_array[i]));
-                        $(this).siblings('button').attr("id", (i));
 
-                         $(this).closest('div').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
-                        $('#file_id').attr("value", (files_array[i]));
-                        $(this).siblings('.filename').children('input').attr('value', files_array[i]);
-
-                        if (i == length) {
-                            i = 0;
-                        }
-                    });
-
-                    $('.pf').bind("click", function () {
-                        i = $(this).siblings('button').attr("id");
-                        if (i == 0) {
-                            i = length;
-                        }
-                        i--;
-                        $(this).siblings('button').attr("href", (files_array[i]));
-                        $(this).siblings('button').attr("id", (i));
-                        $(this).siblings('.filename').children('input').attr('value', files_array[i]);
-                        $(this).closest('div').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
-                    });
                 }, 1000);
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -133,6 +105,36 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
         });
 
+    });
+
+    $('.nf').bind("click", function () {
+        i = $(this).siblings('button').attr("id");
+        i++;
+        if (i == length) {
+            i = 0
+        }
+        $(this).siblings('button').attr("href", (files_array[i]));
+        $(this).siblings('button').attr("id", (i));
+
+        $(this).closest('div').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
+        $('#file_id').attr("value", (files_array[i]));
+        $(this).siblings('.filename').children('input').attr('value', files_array[i]);
+
+        if (i == length) {
+            i = 0;
+        }
+    });
+
+    $('.pf').bind("click", function () {
+        i = $(this).siblings('button').attr("id");
+        if (i == 0) {
+            i = length;
+        }
+        i--;
+        $(this).siblings('button').attr("href", (files_array[i]));
+        $(this).siblings('button').attr("id", (i));
+        $(this).siblings('.filename').children('input').attr('value', files_array[i]);
+        $(this).closest('div').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
     });
 
 

@@ -44,6 +44,7 @@ and open the template in the editor.
             crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Charm:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noticia+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
     <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=mbm0vjk60ppr25e4m3mxfc462nx4hncthuztgnymgkz3e3w8"></script>
