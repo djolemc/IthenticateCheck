@@ -1,6 +1,7 @@
 <?php
 /*
  * TODO  srediti fajl
+ * TODO jquery modal
  */
 
 require '../config/init.php';
