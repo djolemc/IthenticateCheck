@@ -11,11 +11,12 @@ include '../includes/nav_menu.php';
 
 //var_dump($_SESSION);
 
-$table_data = $_SESSION['form'];
 ?>
 
 <?php
-if (isset($table_data)) {
+if (isset($_SESSION['form'])) {
+    $table_data = $_SESSION['form'];
+
     echo '<h3 id="rez_prov">Rezultati provere:</h3>';
 
     ?>
@@ -51,11 +52,15 @@ if (isset($table_data)) {
     </div>
 
 
+
+
+
+
     <?php
 
 }
 
+
+
 include '../includes/footer.php';
 ?>
-
-

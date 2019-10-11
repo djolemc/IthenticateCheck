@@ -15,6 +15,7 @@ include '../includes/nav_menu.php';
     <div class="col-md-7 " id="links">
         <div class="row">
             <h5 id="title">Izdvojeni članci kandidati iz e-Ur-a za proveru na plagijarizam:</h5>
+            <h6 id="error" style="display: none">Greška prilikom komunikacije sa serverom!</h6>
         </div>
         <div class="row">
             <div id="spinner"></div>
@@ -24,8 +25,9 @@ include '../includes/nav_menu.php';
             <form id="test_forma" name="test_forma" method="POST" action="ithenticate.php">
                 <div id="single_submission">
                 </div>
-                <input id="submit_button" type="submit" value="Pošalji na proveru"
-                       onclick="return confirm('Are you sure you would like to check this files?')" ;>
+                <button id="submit_button" type="submit" value="Pošalji na proveru"
+                        onclick="return confirm('Da li ste sigurni da želite da proverite ove fajlove?')">Pošalji na proveru</button>
+
             </form>
         </div>
     </div>

@@ -1,16 +1,10 @@
 <?php require '../config/init.php';
 
-?>
-
-
-<?php
-
 
 /*
  * TODO napisati upit za bazu, obrisati fake podatke i testove za konekcije
  *
  */
-
 
 //phpinfo();
 
@@ -47,6 +41,7 @@ $red=array(
 
 if (isset($_POST['index_load'])) {
     probna2();
+
     die();
 
 }
@@ -59,10 +54,10 @@ function probna2()
 {
     $rows = [
         array(
-            "journal_title" => 'Sinteze',
+            "journal_title" => 'Acta Facultatis Medicae Naissensis',
             "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
+            "author_first" => 'Katarina',
+            "author_last" => 'Filipovic',
             "submission_title" => "Kinematic and Workspace Analysis of a Parallel Rehabilitation Device for HeadNeck Injured Patients ",
             "submission_id" => 12345,
             "ithenticate_id" => 2345563,
@@ -72,23 +67,23 @@ function probna2()
             "journal_title" => 'Sinteze',
             "journal_id" => 460,
             "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 01",
+            "author_last" => 'DJORDJEVIC',
+            "submission_title" => "ПОКАЗАТЕЉИ РОДНЕ НЕРАВНОПРАВНОСТИ У ТУРИСТИЧКОЈ ПРИВРЕДИ СРБИЈЕ: СЛУЧАЈ ПЛАТА",
             "submission_id" => 12345,
             "ithenticate_id" => 2345563,
             "journal_issn" => '1452-7405'
         ),
-        array(
-            "journal_title" => 'Sintez333e',
-            "journal_id" => 460,
-            "author_first" => 'Dragoljub',
-            "author_last" => 'Djordjevic',
-            "submission_title" => "Naslov rada 02",
-            "submission_id" => 12345,
-            "ithenticate_id" => 2345563,
-            "journal_issn" => '1452-7405'
-        ),
-        //array(
+//        array(
+//            "journal_title" => 'Sintez333e',
+//            "journal_id" => 460,
+//            "author_first" => 'Dragoljub',
+//            "author_last" => 'Djordjevic',
+//            "submission_title" => "Naslov rada 02",
+//            "submission_id" => 12345,
+//            "ithenticate_id" => 2345563,
+//            "journal_issn" => '1452-7405'
+//        ),
+//        array(
 //            "journal_title" => 'Sintez333e',
 //            "journal_id" => 460,
 //            "author_first" => 'Dragoljub',

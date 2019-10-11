@@ -68,7 +68,7 @@ class Submission
         //TODO  zavrsiti metod kad se napravi upit za plagijarizam
         // $files = new FileHandler($this->path);
 
-        $files = ['1.pdf', '2.pdf', '3.pdf', '4.pdf','https://a.uguu.se/tkjGzw0VoPGU.docx'];
+        $files = ['1.pdf', '2.pdf', '3.pdf', '4.pdf','https://a.uguu.se/YqHRAEFwneDo.docx'];
 //        $files = ['1.pdf'];
         $this->filenames = $files;
 

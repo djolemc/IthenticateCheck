@@ -97,8 +97,8 @@ input:focus::placeholder{
 }
 
 #login_frame {
-    margin-top:calc(50vh - 300px); ;
-    margin-left:calc(50vw - 220px); ;
+    margin-top:calc(50vh - 300px);
+    margin-left:calc(50vw - 220px);
     position: fixed;
 display: block;
     /*border: 1px solid black;*/

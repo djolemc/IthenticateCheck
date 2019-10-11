@@ -1,0 +1,7 @@
+#Options +FollowSymLinks -MultiViews
+#RewriteEngine On    # Turn on the rewriting engine
+#RewriteBase /
+#RewriteRule ^/plagijarizam2/controllers?(.*) /$1 [R=301,L]
+#RewriteRule ^plagijarizam2/controllers(/.*|)$ plagijarizam2/$1 [L,NC]
+#RewriteRule ^controllers/(.*)$ $1 [L,NC]
+
