@@ -11,6 +11,7 @@ require '../helpers/array_functions.php';
 require  '../vendor/autoload.php';
 
 
+
 $template = new Template("../templates/mail.php");
 
 
@@ -23,6 +24,8 @@ if (isset($_SESSION['form'])) {
     $mails = prepareMail($journals, $mails);
     $length = count($mails);
 //echo $length;
+
+
     $mailObjects = array();
 
 //Create mail objects

@@ -1,7 +1,13 @@
 
 
 tinymce.init({
-    selector: '.mytextarea'
+    selector: '.mytextarea',
+    setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();
+        });
+    }
+
 });
 
 $(function () {

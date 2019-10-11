@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\Exception;
  */
 
 
-//print_r($_POST);
+print_r($_POST);
 
 $mail_to = $_POST['mail_to'];
 $subject = $_POST['subject'];
