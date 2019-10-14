@@ -72,9 +72,9 @@ class Submission
         $files = [
             ['1.pdf',10],
             ['2.pdf',24 ],
-            ['3.pdf',33 ],
-            ['4.pdf',33],
-            ['5.pdf',5],
+            ['3.pdf',2 ],
+            ['4.pdf',1],
+            ['5.pdf',25],
             ['https://a.uguu.se/YqHRAEFwneDo.docx',1]
         ];
 //        $files = ['1.pdf'];
