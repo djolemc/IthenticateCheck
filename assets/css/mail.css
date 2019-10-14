@@ -43,6 +43,7 @@ html {
 }
 .mail_button:hover {
     background: #6a9eb8;
+    box-shadow: 2px 2px 10px gray;
 }
 
 .mail_forma p {

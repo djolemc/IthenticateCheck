@@ -16,7 +16,7 @@ include '../includes/nav_menu.php';
 <?php
 if (isset($_SESSION['form'])) {
     $table_data = $_SESSION['form'];
-
+    var_dump($table_data);
     echo '<h3 id="rez_prov">Rezultati provere:</h3>';
 
     ?>
@@ -26,10 +26,10 @@ if (isset($_SESSION['form'])) {
 
             <?php foreach ($table_data as $data) : ?>
                 <tr>
-                    <td class='table_data' id='jtitle' contenteditable><?php echo $data['2'] ?></td>
-                    <td class='table_data' contenteditable><?php echo $data['0'];
-                        echo " " . $data['1'] ?></td>
-                    <td class='table_data' contenteditable><?php echo $data['3'] ?></td>
+                    <td class='table_data' id='jtitle' contenteditable><?php echo $data['0'] ?></td>
+                    <td class='table_data' contenteditable><?php echo $data['2'];
+                        echo " " . $data['3'] ?></td>
+                    <td class='table_data' contenteditable><?php echo $data['1'] ?></td>
 
                     <td class='table_data'>Poslato</td>
                 </tr>

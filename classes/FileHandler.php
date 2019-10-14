@@ -12,12 +12,25 @@ class FileHandler
 {
 
     private $path;
+    private $filesize;
 
-    public function __construct($path)
+    public function __construct()
     {
-        $this->path = $path;
+//        $this->path = $path;
 
     }
+
+    public function getFileSize($filename) {
+
+        $filename = "../assets/files/".$filename;
+
+        return round(filesize($filename)/1024/1024);
+//        $this->getFileSize("");
+
+
+
+    }
+
 
 
 //

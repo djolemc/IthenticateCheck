@@ -9,7 +9,6 @@
 
 
 
-
 function myFunction(obj) {
     var link = obj.getAttribute("href");
     var href = link.split(".");
@@ -25,8 +24,26 @@ function myFunction(obj) {
     return false;
 }
 
+
 if (window.location.pathname.split("/").pop() === 'index.php') {
     $(document).ready(function () {
+
+        // function getFileSize(filename) {
+        //     var result = $.ajax({
+        //         url: "ithenticate.php",
+        //         type: 'post',
+        //         async: false,
+        //         data: {
+        //             getFileSize : true,
+        //             file:filename
+        //         },
+        //         success: function (response) {
+        //             return response;
+        //         }
+        //     }).responseText;
+        //     return result;
+        // }
+
 
         $("#spinner").append("<img class='spiner' src='../assets/images/loading.gif'>");
 
@@ -43,132 +60,91 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     var data = response;
                     console.log(data);
                     var HTML = '';
+                    var largeFiles = '';
                     $.each(data, function (i, item) {
 
-                       files_array = item.filenames;
+                       files_array = JSON.parse(item.filenames);
 
-                        //Ovo je samo obicna forma sa tabelom :)
+                        console.log(files_array);
 
-                        HTML += '<div class="form[checked' + i + ']  single_row">';
-                        HTML +='<table class="form_table main"  border="0">';
-                            HTML +='<tr>';
-                                HTML +='<td class="tw5">'+' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();">X</span>'+'</td>';
-                                HTML +='<td class="tw20">'+'Časopis'+'</td>';
-                                HTML +='<td class="tw80">'+'<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>'+'</td>';
-                            HTML +='</tr>';
-                            HTML +='<tr>';
-                                HTML +='<td class="tw5"></td>';
-                                HTML +='<td class="tw20">'+'Naslov'+'</td>';
-                                HTML +='<td>'+'<textarea class="form[checked' + i + '] title article_title" rows="1" type="text" name="form[checked' + i + '][]">' + ucFirst(item.submission_title) + "\\" + item.submission_id + "\\" + '</textarea>'+'</td>';
-                            HTML +='</tr>';
-                            HTML +='<tr>';
-                                HTML +='<td class="tw5">'+'<span class="form[checked' + i + '] number">' + "Rb:" + (i + 1) + ". " + '</span>'+'</td>';
-                                HTML +='<td class="tw20">'+'Autor'+'</td>';
-                                HTML +='<td>'+'Prezime: '+'<input class="form[checked' + i + '] input-res" type="text" name="form[checked' + i + '][]" value="' + ucFirst(item.author_last) + '">'+
-                                    'Ime: '+ '<input class="form[checked' + i + ']" type="text" name="form[checked' + i + '][]" value="' + ucFirst(item.author_first) + '">'+'</td>';
-                            HTML +='</tr>';
-                            HTML +='<tr>';
-                                HTML +='<td class="tw5">'+'</td>';
-                                HTML +='<td class="tw20">'+'Dokument'+'</td>';
-                                HTML +='<td>';
-                                    HTML +='<table class="mini form_table" border="0">';
-                                       HTML +='<tr>';
-                                           HTML +='<td>'+'<span id="filename" class="proba">' + 'Naziv dokumenta: ' + item.filenames[0] +'</span>'+'</td>';
+                           //Ovo je samo obicna forma sa tabelom :)
 
-                                       if (files_array.length > 1) {
-                                           HTML +='<td class="tw10">'+
-                                                '<span class="pf"><i class="fa fa-arrow-left"></i></span>'+
-                                                '<span class="nf"><i class="fa fa-arrow-right"></i></span>'
-                                                +'</td>';
-                                            } else {
-                                            HTML +='<td class="tw10"></td>'
-                                            }
-                                           HTML +='<td class="tw10 btn20">'+' <button id="0" class="form[checked' + i + '] view_button"  href="1.pdf" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">'+'</td>';
-                                       HTML +='</tr>';
-                                    HTML +='</table>';
-                                HTML +='</td>';
-                            HTML +=' </tr>';
-                        HTML +='</table>';
+                           HTML += '<div class="form[checked' + i + ']  single_row">';
+                           HTML += '<table class="form_table main"  border="0">';
+                           HTML += '<tr>';
+                           HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();">X</span>' + '</td>';
+                           HTML += '<td class="tw20">' + 'Časopis' + '</td>';
+                           HTML += '<td class="tw80">' + '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>' + '</td>';
+                           HTML += '</tr>';
+                           HTML += '<tr>';
+                           HTML += '<td class="tw5"></td>';
+                           HTML += '<td class="tw20">' + 'Naslov' + '</td>';
+                           HTML += '<td>' + '<textarea class="form[checked' + i + '] title article_title" rows="1" type="text" name="form[checked' + i + '][]">' + ucFirst(item.submission_title) + "\\" + item.submission_id + "\\" + '</textarea>' + '</td>';
+                           HTML += '</tr>';
+                           HTML += '<tr>';
+                           HTML += '<td class="tw5">' + '<span class="form[checked' + i + '] number">' + "Rb:" + (i + 1) + ". " + '</span>' + '</td>';
+                           HTML += '<td class="tw20">' + 'Autor' + '</td>';
+                           HTML += '<td>' + 'Prezime: ' + '<input class="form[checked' + i + '] input-res" type="text" name="form[checked' + i + '][]" value="' + ucFirst(item.author_last) + '">' +
+                               'Ime: ' + '<input class="form[checked' + i + ']" type="text" name="form[checked' + i + '][]" value="' + ucFirst(item.author_first) + '">' + '</td>';
+                           HTML += '</tr>';
+                           HTML += '<tr>';
+                           HTML += '<td class="tw5">' + '</td>';
+                           HTML += '<td class="tw20">' + 'Dokument' + '</td>';
+                           HTML += '<td>';
+                           HTML += '<table class="mini form_table" border="0">';
+                           HTML += '<tr>';
+                           HTML += '<td>' + '<span id="filename" class="proba">' + 'Naziv dokumenta: ' + files_array[0][0] + '</span>' + '</td>';
 
-                        HTML += '<span class="filename"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + item.filenames[0] + '"></span>';
-                        HTML += '</div>';
-                        HTML += '</div>';
+                           if (files_array.length > 1) {
+                               HTML += '<td class="tw10">' +
+                                   '<span class="pf"><i class="fa fa-arrow-left"></i></span>' +
+                                   '<span class="nf"><i class="fa fa-arrow-right"></i></span>'
+                                   + '</td>';
+                           } else {
+                               HTML += '<td class="tw10"></td>'
+                           }
+                           HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" href="1.pdf" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
+                           HTML += '</tr>';
+                           HTML += '</table>';
+                           HTML += '</td>';
+                           HTML += ' </tr>';
+                           HTML += '</table>';
 
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_issn + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticate_id + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticatePassword + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticateUsername + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_id + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.mail_to + '">';
-                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.path + '">';
+                           HTML += '<span class="filename"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + files_array[0][0] + '"></span>';
+                           HTML += '</div>';
+                           HTML += '</div>';
 
-
-                        HTML += '</div>';
-
-                        // HTML += '<div class="form[checked' + i + ']  single_row">';
-                        // HTML += '<div class="w3">';
-                        // HTML += ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Remove file"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();">X</span><br>';
-                        // HTML += '<span class="form[checked' + i + '] number">' + " " + (i + 1) + ". " + '</span>';
-                        // HTML += '</div>';
-                        //
-                        // HTML += '<div class="w25">';
-                        //
-                        // HTML += '<span id="autori">Prezime i ime autora:';
-                        // HTML += '<input class="form[checked' + i + '] input-res" type="text" name="form[checked' + i + '][]" value="' + item.author_last + '"><br>';
-                        // HTML += '<input class="form[checked' + i + ']" type="text" name="form[checked' + i + '][]" value="' + item.author_first + '">';
-                        // HTML += '</span></div>';
-                        //
-                        // HTML += '<div class="w60">';
-                        // HTML += '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '">' + 'Časopis: ' + '<strong>' + item.journal_title + '</strong><span>';
-                        // // HTML += '<span class="form[checked' + i + '] journal_title" type="text" name="form[checked' + i + '][]" value="' + item.journal_title + '">'+'Časopis: '+'<strong>' +item.journal_title +'</strong><span>';
-                        // HTML += '<textarea class="form[checked' + i + '] title" rows="3" type="text" name="form[checked' + i + '][]">' + item.submission_title + "\\" + item.submission_id + "\\" + '</textarea>';
-                        // HTML += '<span id="filename" class="proba">' + 'Naziv dokumenta: ' + item.filenames[0] + '</span>';
-                        // HTML += '</div>';
-                        // HTML += '<div class="w10">';
-                        // HTML += ' <button id="0" class="form[checked' + i + '] view_button"  href="1.pdf" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">';
-                        //
-                        // if (files_array.length > 1) {
-                        //
-                        //     HTML += '<span class="pf"><i class="fa fa-arrow-left"></i></span>';
-                        //     HTML += '<span class="nf"><i class="fa fa-arrow-right"></i></span>';
-                        //
-                        // }
-                        // HTML += '<span class="filename"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + item.filenames[0] + '"></span>';
-                        // HTML += '</div>';
-                        // HTML += '</div>';
-                        //
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_issn + '">';
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticate_id + '">';
-                        //
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticatePassword + '">';
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticateUsername + '">';
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_id + '">';
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.mail_to + '">';
-                        // HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.path + '">';
-                        //
-                        //
-                        // HTML += '</div>';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_issn + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticate_id + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticatePassword + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.ithenticateUsername + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_id + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.mail_to + '">';
+                           HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.path + '">';
 
 
+                           HTML += '</div>';
 
+            
                     });
                     $('#single_submission').append(HTML); // .hide().slideDown(500);
-                     $("#submit_button").show();
+                    $("#submit_button").show();
 
                     i = 1;
                     length = files_array.length;
-console.log(files_array);
+
                     $('.nf').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
                         i++;
                         if (i == length) {
                             i = 0
                         }
-
-                        $(this).closest('td').next().find('button').attr("href", (files_array[i]));
+                        $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
                          $(this).closest('td').next().find('button').attr("id", (i));
-                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
-                        $(this).closest('form').find('.filename').children('input').attr('value', files_array[i]);
+                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
+                        $(this).closest('form').find('.filename').children('input').attr('value', files_array[i][0]);
+                        console.log( $(this).closest('.form_table').next());
+                        console.log(this);
 
                         if (i == length) {
                             i = 0;
@@ -181,12 +157,29 @@ console.log(files_array);
                             i = length;
                         }
                         i--;
-                        $(this).closest('td').next().find('button').attr("href", (files_array[i]));
+                        $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
                         $(this).closest('td').next().find('button').attr("id", (i));
-                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i]);
-                        $(this).closest('form').find('.filename').children('input').attr('value', files_array[i]);
+                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
+                        $(this).closest('form').find('.filename').children('input').attr('value', files_array[i][0]);
 
                     });
+
+//proverava file size
+                    // $('.btn20').bind("click", function () {
+                    //     file=$('button',this).attr("href");
+                    //      size = getFileSize(file);
+                    //
+                    //         console.log(size);
+                    //         if (size >= 20) {
+                    //             console.log("aaa");
+                    //             $(this).parent().find('span.proba').css("color", "red");
+                    //             $(this).closest('div.single_row').css("border", "2px solid red");
+                    //         } else {
+                    //             $(this).parent().find('span.proba').css("color", "black");
+                    //             $(this).closest('div.single_row').css("border", "none");
+                    //         }
+                    //
+                    // })
 
 
 
@@ -260,6 +253,10 @@ $(document).ready(function () {
             }
         });
     });
+
+
+
+
 });
 
 

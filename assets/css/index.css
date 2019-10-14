@@ -308,3 +308,7 @@ font-size:26px;
 td {
     padding:1px;
 }
+
+#large_submission {
+    display: none;
+}

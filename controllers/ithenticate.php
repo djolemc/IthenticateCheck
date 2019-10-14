@@ -11,8 +11,8 @@ use bsobbe\ithenticate\Ithenticate;
 error_reporting(0);
 ini_set('max_execution_time', 0);
 //
-//var_dump($_POST);
-//die();
+var_dump($_POST);
+die();
 
 
 $user=ITHUSER;
@@ -20,6 +20,18 @@ $pass= base64_decode(ITHPASS);
 $ith = new Ithenticate($user,$pass);
 $sid = $ith->getSid();
 
+
+if (isset($_POST['getFileSize'])) {
+    $filename=$_POST['file'];
+   $file = new FileHandler();
+   $size = $file->getFileSize($filename);
+
+
+    echo $size;
+
+
+    die();
+}
 
 
 if (isset($_POST['form_process'])){
@@ -30,23 +42,25 @@ if (isset($_POST['form_process'])){
 
 
 if (isset($_POST['status'])) {
+//var_dump($_POST);
+//die();
 //    sleep(1);
-    $essay_title =$_POST['niz'][3];
-    $author_firstname = $_POST['niz'][2];
-    $author_lastname = $_POST['niz'][1];
+    $essay_title =$_POST['niz'][1];
+    $author_firstname = $_POST['niz'][3];
+    $author_lastname = $_POST['niz'][2];
 //  $filename = $_FILES['file']['name'];
     $filename =' proba.pdf';
-    $document_content= file_get_contents('../assets/files/1.pdf');
+    $document_content= file_get_contents('../assets/files/2.pdf');
     $folder_number='1643419';
 
-    //$id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
+   // $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
 
-    $id='50789358'; //false
-   // $id='50784425';
-    $id2='50496982';
+  $id='50789358'; //false
+  //  $id='50784425';
+   // $id2='50496982';
 
 
-    echo $id2;
+    echo $id;
 
 
     die();

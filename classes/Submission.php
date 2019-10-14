@@ -24,6 +24,7 @@ class Submission
     public $mail_to;
     public $ithenticateUsername;
     public $ithenticatePassword;
+//    public $submission_filesize = 150;
     private $sql_base;
 
 
@@ -68,9 +69,16 @@ class Submission
         //TODO  zavrsiti metod kad se napravi upit za plagijarizam
         // $files = new FileHandler($this->path);
 
-        $files = ['1.pdf', '2.pdf', '3.pdf', '4.pdf','https://a.uguu.se/YqHRAEFwneDo.docx'];
+        $files = [
+            ['1.pdf',10],
+            ['2.pdf',24 ],
+            ['3.pdf',33 ],
+            ['4.pdf',33],
+            ['5.pdf',5],
+            ['https://a.uguu.se/YqHRAEFwneDo.docx',1]
+        ];
 //        $files = ['1.pdf'];
-        $this->filenames = $files;
+        $this->filenames = json_encode($files);
 
     }
 

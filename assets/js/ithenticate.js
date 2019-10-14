@@ -8,6 +8,7 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
 
         //Salje jedan po jedan rad php skripti, koja ih salje na Ithenticate
         var array = JSON.parse(result);
+        //console.log(array);
         var i = 0;
         var docIds = [];
         var refreshIntervalId = setInterval(function () {
@@ -21,13 +22,15 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                     type: "post",
                     data: {status: 'status', niz: niz},
                     success: function (response) {
+                       console.log(niz);
                         $("#sending").html("Šaljem dokument " + (i + 1) + " od " + length);
-                        $("#rezultati").append('<p>' + niz[2] + ' - ' + '<span class="element">' + response + '</span>' + '<span class="report"></span></p>');
-
-                        // docIds.push(response);
+                        $("#rezultati").append('<p>' + niz[2] + ' '+niz[3] + ' - ' +niz[1] + '<span class="element">' +': '+  response + '</span>' + '<span class="report"></span></p>');
+                        console.log(response);
+                         docIds.push(response);
 
                         if (i == (array.length - 1)) {
                             $("#rezultati").append('<br><p><strong>Done!</strong></p>');
+                            $(".spinner-border").show();
                         }
 
                     }
@@ -38,7 +41,7 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
             i++
         }, 500);
 
-        docIds = ['50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982', '50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982'];
+       // docIds = ['50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982', '50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982'];
 
         console.log(docIds);
 
@@ -86,16 +89,20 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                         success: function (result) {
 
                             res = JSON.parse(result);
-                            console.log(res);
+                        //    console.log(res);
                             documentStatus = res[0];
                             documentReportId = res[1];
 
+                          //  console.log(documentStatus.is_pending);
+                          //  console.log(documentReportId);
+
+
                             console.log($(".report"));
-                            if (documentStatus.isPending == 1) {
+                            if (documentStatus.is_pending == 1) {
                                 $(".report")[i].innerHTML = "<span style='color:blue'> - Processing..</span>";
-                            } else if (documentReportId == false) {
+                            } else if (documentStatus.is_pending == 0 && documentReportId == false) {
                                 $(".report")[i].innerHTML = "<span style='color:red'> - Failed!</span>";
-                            } else if (documentReportId != false) {
+                            } else if (documentStatus.is_pending == 0 && documentReportId != false) {
                                 $(".report")[i].innerHTML = "<span style='color:green'> - Success!</span>";
                             }
                         }
