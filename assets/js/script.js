@@ -7,61 +7,10 @@
  *
  **/
 
-
-
-function myFunction(obj) {
-  
-
-    buttons=document.getElementsByClassName('view_button');
-
-    for (i=0;i<buttons.length;i++) {
-        (buttons[i]).style.background="#DDDDDD";
-        (buttons[i]).style.color="#808080";
-    }
-    obj.style.background="#6a9eb8";
-    obj.style.color="white";
-
-    var link = obj.getAttribute("href");
-    var path = obj.getAttribute("name");
-    var href = link.split(".");
-    var ext = href.slice(-1)[0];
-    if (ext == 'pdf') {
-        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
-    } else if (ext == 'docx' || ext == 'doc') {
-        /* office online viewer, ne cita rtf */
-        document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="0"></iframe>';
-    } else if (ext == 'rtf') {
-        //google docs viewer
-        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
-     } else {
-        document.getElementById('frame').innerHTML = "Kliknite na link da pogledate fajl.";
-    }
-    return false;
-}
-
-
 if (window.location.pathname.split("/").pop() === 'index.php') {
     $(document).ready(function () {
 
-        // function getFileSize(filename) {
-        //     var result = $.ajax({
-        //         url: "ithenticate.php",
-        //         type: 'post',
-        //         async: false,
-        //         data: {
-        //             getFileSize : true,
-        //             file:filename
-        //         },
-        //         success: function (response) {
-        //             return response;
-        //         }
-        //     }).responseText;
-        //     return result;
-        // }
-
-
         $("#spinner").append("<img class='spiner' src='../assets/images/loading.gif'>");
-
 
         $.ajax({
             url: "index.php",
@@ -81,8 +30,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
                         files_array = JSON.parse(item.filenames);
 
-                        
-                        //Ovo je samo obicna forma sa tabelom :)
+
 
                         //provera da li je fajl veci od 20mb
                         if (files_array[0][1]>=20) { 
@@ -125,7 +73,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         } else {
                             HTML += '<td class="tw10"></td>'
                         }
-                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" name="' + item.path + '" href="' + files_array[0][0] + '" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
+                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" name="' + item.path + '" href="' + files_array[0][0] + '" onclick="viewDocuments(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
                         HTML += '</tr>';
                         HTML += '</table>';
                         HTML += '</td>';
@@ -169,18 +117,12 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                             i = 0
                         }
                         $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
-
                         $(this).closest('td').next().find('button').attr("id", (i));
                         $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + '<a href="'+path+"/"+files_array[i][0]+'">' + files_array[i][0]);
-                        //  console.log(files_array);
                         $(this).closest('td').prev().find('.size').html('Naziv dokumenta: ' + files_array[i][0]);
-
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
                         $(this).closest('.single_row').find('.filesize').children('input').attr('value', files_array[i][1]);
 
-
-                        //  console.log( $(this).closest('.single_row').siblings('.filesize'));
-                       
                         if (files_array[i][1] >= 20) {
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
@@ -205,13 +147,10 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + '<a href="'+path+"/"+files_array[i][0]+'">' + files_array[i][0]);
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
 
-                        //  console.log(files_array[i][1]);
-
                         if (files_array[i][1] > 0) {
 
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
-
 
                         } else {
                             $(this).parent().find('span.proba').css("color", "black");
@@ -219,7 +158,8 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         }
 
                     });
-                removeLinks();
+
+                      removeLinks();
             
 
                 }, 1000);
@@ -228,15 +168,12 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
                 $('#spinner').fadeOut(1000);
                 $('#error').fadeIn(2000);
-
-
                 console.log(errorThrown);
                 console.log(jqXHR.responseText);
             }
 
         });
 
-        
 
     });
 
@@ -248,20 +185,18 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
     }
 
-    
+
     function removeLinks(){
        var links= document.getElementsByClassName('proba');
-              
-        
+
         for (i=0;i<links.length;i++) {
                 if (links[i].innerText=='Naziv dokumenta: Fajl nije pronađen!') {
                 links[i].innerHTML ='Naziv dokumenta: <span style="color:red">Fajl nije pronađen!</span>'
                 
             }
-       
-       
+
         }
-        
+
         
     }        
 
@@ -282,13 +217,6 @@ function deleteX(obj) {
     }
 }
 
-temp_niz = [];
-
-function alertF() {
-    if (temp_niz.length > 0) {
-        confirm("Neki od fajlova su veci od 20mb");
-    }
-}
 
 //Prikazuje poruku ako nema radova za slanje na proveru
 
@@ -320,6 +248,35 @@ $(document).ready(function () {
 
 });
 
+function viewDocuments(obj) {
+
+
+    buttons=document.getElementsByClassName('view_button');
+
+    for (i=0;i<buttons.length;i++) {
+        (buttons[i]).style.background="#DDDDDD";
+        (buttons[i]).style.color="#808080";
+    }
+    obj.style.background="#6a9eb8";
+    obj.style.color="white";
+
+    var link = obj.getAttribute("href");
+    var path = obj.getAttribute("name");
+    var href = link.split(".");
+    var ext = href.slice(-1)[0];
+    if (ext == 'pdf') {
+        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
+    } else if (ext == 'docx' || ext == 'doc') {
+        /* office online viewer, ne cita rtf */
+        document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="0"></iframe>';
+    } else if (ext == 'rtf') {
+        //google docs viewer
+        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
+    } else {
+        document.getElementById('frame').innerHTML = " <i id=\"file_icon\" class=\"fa fa-meh-o\"></i><p id=\"file_not_found\">Fajl ne postoji na serveru.</p>";
+    }
+    return false;
+}
 
 
 

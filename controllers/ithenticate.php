@@ -21,17 +21,18 @@ $ith = new Ithenticate($user,$pass);
 $sid = $ith->getSid();
 
 
-if (isset($_POST['getFileSize'])) {
-    $filename=$_POST['file'];
-   $file = new FileHandler();
-   $size = $file->getFileSize($filename);
-
-
-    echo $size;
-
-
-    die();
-}
+//Ovo verovatno moze da se brise. proveriti
+//if (isset($_POST['getFileSize'])) {
+//    $filename=$_POST['file'];
+//   $file = new FileHandler();
+//   $size = $file->getFileSize($filename);
+//
+//
+//    echo $size;
+//
+//
+//    die();
+//}
 
 
 if (isset($_POST['form_process'])){
@@ -47,11 +48,15 @@ if (isset($_POST['status'])) {
 //    sleep(1);
     $essay_title =$_POST['niz'][1];
     $author_firstname = $_POST['niz'][3];
-    $author_lastname = $_POST['niz'][2];
+    $author_lastname =
+    $path=$_POST['niz'][11];
+
 //  $filename = $_FILES['file']['name'];
-    $filename =' proba.pdf';
-    $document_content= file_get_contents('../assets/files/2.pdf');
+    $filename =$_POST['niz'][4];
+    $document_content= file_get_contents($path."/".$filename);
+    echo $document_content;
     $folder_number='1643419';
+    //$folder_number=$_POST['niz'][6];
 
    // $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
 
@@ -99,12 +104,6 @@ echo $template;
 //$sid = $ith->getSid());
 
 
-
-
-//Assign vars
-
-//$template->result = $list;
-//$template->result1 = "aaa";
 
 
 
