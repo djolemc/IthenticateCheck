@@ -99,7 +99,7 @@ iframe {
     /*background-color: #f3f2f9;*/
     border-radius: 5px;
     /*overflow: hidden;*/
-    /*border: 1px solid black;*/
+    border: 2px solid white;
     box-shadow: 2px 2px 10px gray;
 }
 
@@ -148,13 +148,13 @@ input {
     width: 100%;
 }
 
-.pf, .nf {
+.previousFile, .nextFile {
     color: #6a9eb8;
     margin-left: 5px;
     font-size: 20px;
 }
 
-.pf:hover, .nf:hover {
+.previousFile:hover, .nextFile:hover {
     color:lightseagreen;
     font-size: 18px;
 }

@@ -14,8 +14,10 @@ include '../includes/nav_menu.php';
 <div class="row">
     <div class="col-md-7 " id="links">
         <div class="row">
+
             <h5 id="title">Izdvojeni članci kandidati iz e-Ur-a za proveru na plagijarizam:</h5>
             <h6 id="error" style="display: none">Greška prilikom komunikacije sa serverom!</h6>
+
         </div>
         <div class="row">
             <div id="spinner"></div>
@@ -26,7 +28,9 @@ include '../includes/nav_menu.php';
                 <div id="single_submission">
                 </div>
                 <button id="submit_button" type="submit" value="Pošalji na proveru"
-                        onclick="return confirm('Da li ste sigurni da želite da proverite ove fajlove?')">Pošalji na proveru</button>
+                        onclick="alertF();return confirm('Da li ste sigurni da želite da proverite ove fajlove?')">
+                    Pošalji na proveru
+                </button>
 
             </form>
         </div>

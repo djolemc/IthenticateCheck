@@ -11,13 +11,23 @@
 
 function myFunction(obj) {
     var link = obj.getAttribute("href");
+    var path = obj.getAttribute("name");
     var href = link.split(".");
     var ext = href.slice(-1)[0];
     if (ext == 'pdf') {
         //document.getElementById('frame').innerHTML = `<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="../assets/files/${link}" frameborder="1" scrolling="auto" width="50%" ></iframe>`;
-        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="../assets/files/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
+        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '" frameborder="1" scrolling="auto"  ></iframe>';
     } else if (ext == 'docx' || ext == 'doc') {
-        document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=' + link + '" frameborder="0">This is an embedded <a target="_blank" href="http://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="http://office.com/webapps">Office Online</a>.</iframe>';
+       /* office online viewer, ne cita rtf */
+       
+       document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '" frameborder="0"></iframe>';
+    }
+        else if (ext=='rtf') {
+      //google docs viewer
+        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '&embedded=true"></iframe>';
+      
+
+      console.log(document.getElementById('frame').innerHTML);
     } else {
         document.getElementById('frame').innerHTML = "Kliknite na link da pogledate fajl.";
     }
@@ -61,6 +71,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     console.log(data);
                     var HTML = '';
                     var largeFiles = '';
+
                     $.each(data, function (i, item) {
 
                         files_array = JSON.parse(item.filenames);
@@ -91,19 +102,20 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '<td class="tw5">' + '</td>';
                         HTML += '<td class="tw20">' + 'Dokument' + '</td>';
                         HTML += '<td>';
-                        HTML += '<table class="mini form_table" border="0">';
+                        HTML += '<table id="'+i+'" class="mini form_table" border="0">';
                         HTML += '<tr>';
                         HTML += '<td>' + '<span id="filename" class="proba">' + 'Naziv dokumenta: ' + files_array[0][0] + '</span>' + '</td>';
 
+
                         if (files_array.length > 1) {
                             HTML += '<td class="tw10">' +
-                                '<span class="pf"><i class="fa fa-arrow-left"></i></span>' +
-                                '<span class="nf"><i class="fa fa-arrow-right"></i></span>'
+                                '<span class="previousFile"><i class="fa fa-arrow-left"></i></span>' +
+                                '<span class="nextFile"><i class="fa fa-arrow-right"></i></span>'
                                 + '</td>';
                         } else {
                             HTML += '<td class="tw10"></td>'
                         }
-                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" href="1.pdf" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
+                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" name="'+item.path+'" href="'+files_array[0][0]+'" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
                         HTML += '</tr>';
                         HTML += '</table>';
                         HTML += '</td>';
@@ -111,6 +123,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '</table>';
 
                         HTML += '<span class="filename"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + files_array[0][0] + '"></span>';
+
                         HTML += '</div>';
                         HTML += '</div>';
 
@@ -121,7 +134,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.journal_id + '">';
                         HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.mail_to + '">';
                         HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.path + '">';
-
+                        HTML += '<span class="filesize"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + files_array[0][1] + '"></span>';
 
                         HTML += '</div>';
 
@@ -131,26 +144,38 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     $("#submit_button").show();
 
                     i = 1;
-                    length = files_array.length;
+                    
 
-                    $('.nf').bind("click", function () {
+                    $('.nextFile').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
+                        j = $(this).closest('table').attr("id");
+                      
+                        files_array=JSON.parse(data[j].filenames);
+                        length = files_array.length;
+                          console.log(files_array);
                         i++;
                         if (i == length) {
                             i = 0
                         }
                         $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
+                        
                         $(this).closest('td').next().find('button').attr("id", (i));
                         $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
+                      //  console.log(files_array);
+                        $(this).closest('td').prev().find('.size').html('Naziv dokumenta: ' + files_array[i][0]);
+
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
-                        // console.log( $(this).closest('.single_row').find('.filename'));
+                        $(this).closest('.single_row').find('.filesize').children('input').attr('value', files_array[i][1]);
+
+
+                       //  console.log( $(this).closest('.single_row').siblings('.filesize'));
 
                         if (files_array[i][1] >= 20) {
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
                         } else {
                             $(this).parent().find('span.proba').css("color", "black");
-                            $(this).closest('div.single_row').css("border", "none");
+                            $(this).closest('div.single_row').css("border", "2px solid white");
                         }
 
                         if (i == length) {
@@ -158,7 +183,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         }
                     });
 
-                    $('.pf').bind("click", function () {
+                    $('.previousFile').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
                         if (i == 0) {
                             i = length;
@@ -169,15 +194,17 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
 
-                        console.log(files_array[i][1]);
+                      //  console.log(files_array[i][1]);
 
                         if (files_array[i][1] >= 20) {
 
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
+
+
                         } else {
                             $(this).parent().find('span.proba').css("color", "black");
-                            $(this).closest('div.single_row').css("border", "none");
+                            $(this).closest('div.single_row').css("border", "2px solid white");
                         }
 
                     });
@@ -222,6 +249,14 @@ function deleteX(obj) {
         while (elements.length > 0) {
             elements[0].parentNode.removeChild(elements[0]);
         }
+    }
+}
+
+temp_niz=[];
+
+function alertF() {
+    if (temp_niz.length > 0) {
+        confirm("Neki od fajlova su veci od 20mb");
     }
 }
 

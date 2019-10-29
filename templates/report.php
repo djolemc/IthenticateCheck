@@ -16,7 +16,7 @@ include '../includes/nav_menu.php';
 <?php
 if (isset($_SESSION['form'])) {
     $table_data = $_SESSION['form'];
-    var_dump($table_data);
+//    var_dump($table_data);
     echo '<h3 id="rez_prov">Rezultati provere:</h3>';
 
     ?>

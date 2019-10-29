@@ -14,11 +14,20 @@ class FileHandler
     private $path;
     private $filesize;
 
-    public function __construct()
+    public function __construct($path)
     {
-//        $this->path = $path;
+        $this->path = $path;
 
     }
+
+
+    public function getFiles() {
+
+
+
+
+    }
+
 
     public function getFileSize($filename) {
 
