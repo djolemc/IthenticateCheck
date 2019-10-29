@@ -10,8 +10,7 @@
 
 
 function myFunction(obj) {
-    console.log(obj);
-
+  
 
     buttons=document.getElementsByClassName('view_button');
 
@@ -35,7 +34,7 @@ function myFunction(obj) {
         //google docs viewer
         document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
      } else {
-        document.getElementById('frame').innerHTML = " <i id=\"file_icon\" class=\"fa fa-meh-o\"></i><p id=\"file_not_found\">Fajl ne postoji na serveru.</p>";
+        document.getElementById('frame').innerHTML = "Kliknite na link da pogledate fajl.";
     }
     return false;
 }
@@ -85,7 +84,13 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         
                         //Ovo je samo obicna forma sa tabelom :)
 
-                        HTML += '<div class="form[checked' + i + ']  single_row">';
+                        //provera da li je fajl veci od 20mb
+                        if (files_array[0][1]>=20) { 
+                            HTML += '<div style="border:2px solid red" class="form[checked' + i + ']  single_row">';
+                            console.log(this);
+                         } else {
+                            HTML += '<div class="form[checked' + i + ']  single_row">';
+                               }
                         HTML += '<table class="form_table main"  border="0">';
                         HTML += '<tr>';
                         HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();">X</span>' + '</td>';
@@ -143,7 +148,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
                         HTML += '</div>';
 
-
+                        
                     });
                     $('#single_submission').append(HTML); // .hide().slideDown(500);
                     $("#submit_button").show();
@@ -175,7 +180,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
 
                         //  console.log( $(this).closest('.single_row').siblings('.filesize'));
-
+                       
                         if (files_array[i][1] >= 20) {
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
@@ -202,7 +207,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
                         //  console.log(files_array[i][1]);
 
-                        if (files_array[i][1] >= 20) {
+                        if (files_array[i][1] > 0) {
 
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
@@ -214,7 +219,8 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         }
 
                     });
-removeLinks();
+                removeLinks();
+            
 
                 }, 1000);
             },
@@ -243,15 +249,12 @@ removeLinks();
     }
 
     
-    
     function removeLinks(){
        var links= document.getElementsByClassName('proba');
               
         
         for (i=0;i<links.length;i++) {
-            console.log(links[i].innerText);
-            console.log(links[i].innerHTML);
-            if (links[i].innerText=='Naziv dokumenta: Fajl nije pronađen!') {
+                if (links[i].innerText=='Naziv dokumenta: Fajl nije pronađen!') {
                 links[i].innerHTML ='Naziv dokumenta: <span style="color:red">Fajl nije pronađen!</span>'
                 
             }

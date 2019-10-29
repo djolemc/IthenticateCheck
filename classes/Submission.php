@@ -35,7 +35,9 @@ class Submission
 
         $this->journal_title = $db_row->journal_title;
         $this->journal_id = $db_row->journal_id;
-        $this->author_first = $db_row->author_first;
+//        $this->author_first = $db_row->author_first;
+        $this->author_first = $this->getAuthorName($db_row->author_first);
+
         $this->author_last = $db_row->author_last;
         $this->submission_title = $db_row->submission_title;
         $this->submission_id = $db_row->submission_id;
@@ -47,6 +49,11 @@ class Submission
         $this->setIthenticateData();
     }
 
+    private function getAuthorName($name) {
+        $name = explode(" ", $name);
+        return $name[0];
+
+    }
 
     private function setPath()
     {
