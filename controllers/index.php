@@ -35,11 +35,12 @@ CASE WHEN EXISTS(SELECT * FROM edit_decisions WHERE decision = 1 AND submission_
 	JOIN (SELECT DISTINCT author_id, setting_value FROM author_settings WHERE setting_name = \'givenName\') aus2 ON aus2.author_id= a.author_id
 	JOIN (SELECT DISTINCT submission_id, setting_value FROM submission_settings WHERE setting_name = \'title\' AND locale = \'en_US\') ss ON ss.submission_id=s.submission_id
 	JOIN (SELECT DISTINCT submission_id, setting_value FROM submission_settings WHERE setting_name = \'title\' AND locale = \'sr_RS@latin\') ss2 ON ss2.submission_id=s.submission_id
-	JOIN (SELECT DISTINCT journal_id, setting_value FROM journal_settings WHERE setting_name = \'name\') js ON js.journal_id = s.context_id
+	JOIN (SELECT DISTINCT journal_id, setting_value FROM journal_settings WHERE setting_name = \'name\' and locale=\'sr_RS@latin\') js ON js.journal_id = s.context_id
 	JOIN (SELECT DISTINCT journal_id, setting_value FROM journal_settings WHERE setting_name = \'PrintIssn\') js2 ON js2.journal_id = s.context_id
 	JOIN (SELECT DISTINCT journal_id, setting_value FROM journal_settings WHERE setting_name = \'iThenticateId\') js3 ON js3.journal_id = s.context_id
 	WHERE NOT EXISTS (SELECT * FROM cees_plagiarism_articles_exported WHERE article_id = s.submission_id)
-	GROUP BY s.submission_id limit 10 ');
+	GROUP BY s.submission_id 
+    order by journal_title limit 10;');
 
 
     $results = ($mysql_connection->resultset());

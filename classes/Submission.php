@@ -65,25 +65,7 @@ class Submission
      */
     private function setFilenames()
     {
-
-        //TODO  zavrsiti metod kad se napravi upit za plagijarizam
-        $files = $this->getFiles();
-//
-        //       $files = [
-        //         ['1.pdf',10],
-        //       ['2.pdf',24 ],
-        //     ['3.pdf',2 ],
-        //   ['4.pdf',1],
-        // ['5.pdf',25],
-        //['https://a.uguu.se/YqHRAEFwneDo.docx',1]
-        //];
-//        $files = ['1.pdf'];
-
-        //   echo "<pre>";
-        //   print_r($files);
-
-        $this->filenames = json_encode($files);
-
+        $this->filenames = json_encode($this->getFiles());
     }
 
     private function getFiles()
@@ -104,10 +86,7 @@ class Submission
             foreach (scandir($dir) as $file) {
                 $ext = pathinfo($file, PATHINFO_EXTENSION);
                 if (in_array($ext, $allowed_extensions)) {
-
                     $files[$file] = filemtime($dir . '/' . $file);
-                    // $files[$file] = $size;
-                    // array_push($files, [$file,$size]);
 
                 }
             }
@@ -120,19 +99,18 @@ class Submission
             foreach ($files as $file) {
 
                 $size = $this->getFileSize($dir, $file);
-
                 array_push($files_final, [$file, $size]);
 
             }
-           
+
             if (empty($files_final)) {
                 $files_final[0][0] = "Fajl nije pronađen!";
             }
-             return $files_final;
+            return $files_final;
         } else
 
-               $files_final[0][0] = "Fajl nije pronađen!";
-               return $files_final;
+            $files_final[0][0] = "Fajl nije pronađen!";
+        return $files_final;
 
 
     }
@@ -140,7 +118,7 @@ class Submission
     private function getFileSize($dir, $filename)
     {
 
-        $size = round(filesize($dir . "/" . $filename) / 1024/1024);
+        $size = round(filesize($dir . "/" . $filename) / 1024 / 1024);
         return $size;
     }
 

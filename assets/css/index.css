@@ -54,13 +54,16 @@ iframe {
     color: lightgrey;
 
 }
-.file_text {
+.file_text, #file_not_found {
     display: table;
     margin: 100px auto;
     font-size: 32px;
     color: grey;
     text-align: center;
 }
+
+
+
 
 .number {
     /*padding-left: 10px;*/

@@ -10,26 +10,32 @@
 
 
 function myFunction(obj) {
+    console.log(obj);
+
+
+    buttons=document.getElementsByClassName('view_button');
+
+    for (i=0;i<buttons.length;i++) {
+        (buttons[i]).style.background="#DDDDDD";
+        (buttons[i]).style.color="#808080";
+    }
+    obj.style.background="#6a9eb8";
+    obj.style.color="white";
+
     var link = obj.getAttribute("href");
     var path = obj.getAttribute("name");
     var href = link.split(".");
     var ext = href.slice(-1)[0];
     if (ext == 'pdf') {
-        //document.getElementById('frame').innerHTML = `<iframe id="fred" style="border:1px solid #666CCC" title="PDF in an i-Frame" src="../assets/files/${link}" frameborder="1" scrolling="auto" width="50%" ></iframe>`;
-        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '" frameborder="1" scrolling="auto"  ></iframe>';
+        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
     } else if (ext == 'docx' || ext == 'doc') {
-       /* office online viewer, ne cita rtf */
-       
-       document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '" frameborder="0"></iframe>';
-    }
-        else if (ext=='rtf') {
-      //google docs viewer
-        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path +'/'+ link + '&embedded=true"></iframe>';
-      
-
-      console.log(document.getElementById('frame').innerHTML);
-    } else {
-        document.getElementById('frame').innerHTML = "Kliknite na link da pogledate fajl.";
+        /* office online viewer, ne cita rtf */
+        document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="0"></iframe>';
+    } else if (ext == 'rtf') {
+        //google docs viewer
+        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
+     } else {
+        document.getElementById('frame').innerHTML = " <i id=\"file_icon\" class=\"fa fa-meh-o\"></i><p id=\"file_not_found\">Fajl ne postoji na serveru.</p>";
     }
     return false;
 }
@@ -76,8 +82,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
                         files_array = JSON.parse(item.filenames);
 
-                        console.log(files_array);
-
+                        
                         //Ovo je samo obicna forma sa tabelom :)
 
                         HTML += '<div class="form[checked' + i + ']  single_row">';
@@ -102,9 +107,9 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '<td class="tw5">' + '</td>';
                         HTML += '<td class="tw20">' + 'Dokument' + '</td>';
                         HTML += '<td>';
-                        HTML += '<table id="'+i+'" class="mini form_table" border="0">';
+                        HTML += '<table id="' + i + '" class="mini form_table" border="0">';
                         HTML += '<tr>';
-                        HTML += '<td>' + '<span id="filename" class="proba">' + 'Naziv dokumenta: ' + files_array[0][0] + '</span>' + '</td>';
+                        HTML += '<td>' + '<span id="filename" class="proba">' + 'Naziv dokumenta: ' + '<a href="'+item.path+"/"+files_array[0][0]+'">' + files_array[0][0] + '</a></span>' + '</td>';
 
 
                         if (files_array.length > 1) {
@@ -115,7 +120,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         } else {
                             HTML += '<td class="tw10"></td>'
                         }
-                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" name="'+item.path+'" href="'+files_array[0][0]+'" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
+                        HTML += '<td class="tw10 btn20">' + ' <button id="0" class="form[checked' + i + '] view_button" name="' + item.path + '" href="' + files_array[0][0] + '" onclick="myFunction(this);return false">Pogledaj dokument</button><br class="form[checked' + i + ']">' + '</td>';
                         HTML += '</tr>';
                         HTML += '</table>';
                         HTML += '</td>';
@@ -144,31 +149,32 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     $("#submit_button").show();
 
                     i = 1;
-                    
+
 
                     $('.nextFile').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
                         j = $(this).closest('table').attr("id");
-                      
-                        files_array=JSON.parse(data[j].filenames);
+
+                        files_array = JSON.parse(data[j].filenames);
+                        path = data[j].path;
                         length = files_array.length;
-                          console.log(files_array);
+                        
                         i++;
                         if (i == length) {
                             i = 0
                         }
                         $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
-                        
+
                         $(this).closest('td').next().find('button').attr("id", (i));
-                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
-                      //  console.log(files_array);
+                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + '<a href="'+path+"/"+files_array[i][0]+'">' + files_array[i][0]);
+                        //  console.log(files_array);
                         $(this).closest('td').prev().find('.size').html('Naziv dokumenta: ' + files_array[i][0]);
 
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
                         $(this).closest('.single_row').find('.filesize').children('input').attr('value', files_array[i][1]);
 
 
-                       //  console.log( $(this).closest('.single_row').siblings('.filesize'));
+                        //  console.log( $(this).closest('.single_row').siblings('.filesize'));
 
                         if (files_array[i][1] >= 20) {
                             $(this).parent().find('span.proba').css("color", "red");
@@ -191,10 +197,10 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         i--;
                         $(this).closest('td').next().find('button').attr("href", (files_array[i][0]));
                         $(this).closest('td').next().find('button').attr("id", (i));
-                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + files_array[i][0]);
+                        $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + '<a href="'+path+"/"+files_array[i][0]+'">' + files_array[i][0]);
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
 
-                      //  console.log(files_array[i][1]);
+                        //  console.log(files_array[i][1]);
 
                         if (files_array[i][1] >= 20) {
 
@@ -208,7 +214,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         }
 
                     });
-
+removeLinks();
 
                 }, 1000);
             },
@@ -224,6 +230,8 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
         });
 
+        
+
     });
 
 
@@ -234,6 +242,25 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
     }
 
+    
+    
+    function removeLinks(){
+       var links= document.getElementsByClassName('proba');
+              
+        
+        for (i=0;i<links.length;i++) {
+            console.log(links[i].innerText);
+            console.log(links[i].innerHTML);
+            if (links[i].innerText=='Naziv dokumenta: Fajl nije pronađen!') {
+                links[i].innerHTML ='Naziv dokumenta: <span style="color:red">Fajl nije pronađen!</span>'
+                
+            }
+       
+       
+        }
+        
+        
+    }        
 
 }
 
@@ -252,7 +279,7 @@ function deleteX(obj) {
     }
 }
 
-temp_niz=[];
+temp_niz = [];
 
 function alertF() {
     if (temp_niz.length > 0) {

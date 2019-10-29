@@ -2,17 +2,8 @@
 include '../includes/header.php';
 include '../includes/nav_menu.php';
 
-
-
-//
-
-
-//    foreach ($data as $x) {
-//        echo "Ime: ".$x[0]."<br>";
-//    }
-
 ?>
-<!--<div id="example"></div>-->
+
 
 <div class="row">
     <div class="col-md-10 rezultat">
