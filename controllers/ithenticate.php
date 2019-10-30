@@ -10,9 +10,9 @@ require '../vendor/autoload.php';
 use bsobbe\ithenticate\Ithenticate;
 error_reporting(0);
 ini_set('max_execution_time', 0);
-//
-//var_dump($_POST);
-//die();
+
+var_dump($_POST);
+die();
 
 
 $user=ITHUSER;

@@ -24,13 +24,9 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     var data = response;
                     console.log(data);
                     var HTML = '';
-                    var largeFiles = '';
-
                     $.each(data, function (i, item) {
 
                         files_array = JSON.parse(item.filenames);
-
-
 
                         //provera da li je fajl veci od 20mb
                         if (files_array[0][1]>=20) { 
@@ -41,7 +37,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                                }
                         HTML += '<table class="form_table main"  border="0">';
                         HTML += '<tr>';
-                        HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();">X</span>' + '</td>';
+                        HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();setAsChecked(this)">X</span>' + '</td>';
                         HTML += '<td class="tw20">' + 'Časopis' + '</td>';
                         HTML += '<td class="tw80">' + '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>' + '</td>';
                         HTML += '</tr>';
@@ -93,7 +89,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.mail_to + '">';
                         HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.path + '">';
                         HTML += '<span class="filesize"><input class="form[checked' + i + '] file" type="hidden" name="form[checked' + i + '][]" value="' + files_array[0][1] + '"></span>';
-
+                        HTML += '<input class="form[checked' + i + ']" type="hidden" name="form[checked' + i + '][]" value="' + item.submission_id + '">';
                         HTML += '</div>';
 
                         
@@ -208,15 +204,37 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 function deleteX(obj) {
     if (confirm('Da li ste sigurni da želite da obrišete ovaj fajl?')) {
         className = (obj.className.split(" ")[0]);
-        // console.log(className);
+         //console.log(className);
 
         var elements = document.getElementsByClassName(className);
-        while (elements.length > 0) {
-            elements[0].parentNode.removeChild(elements[0]);
-        }
+        //while (elements.length > 0) {
+          //  elements[0].parentNode.removeChild(elements[0]);
+       // }
     }
 }
+//todo dovrsiti funkciju
+//Upisuje rad u bazu kao proveren
+function setAsChecked(obj) {
 
+    className = (obj.className.split(" ")[0]);
+    var elements = document.getElementsByClassName(className);
+    documentId=elements[18].value;
+
+    console.log(documentId);
+    $.ajax({
+        url: "index.php",
+        type: 'post',
+        data: {name:'Insert', id: documentId},
+        success: function (response) {
+
+
+            //alert(response);
+
+        }
+    });
+
+
+}
 
 //Prikazuje poruku ako nema radova za slanje na proveru
 

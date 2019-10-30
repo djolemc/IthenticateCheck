@@ -28,7 +28,7 @@ include '../includes/nav_menu.php';
                 <div id="single_submission">
                 </div>
                 <button id="submit_button" type="submit" value="Pošalji na proveru"
-                        onclick="alertF();return confirm('Da li ste sigurni da želite da proverite ove fajlove?')">
+                        onclick="return confirm('Da li ste sigurni da želite da proverite ove fajlove?')">
                     Pošalji na proveru
                 </button>
 
