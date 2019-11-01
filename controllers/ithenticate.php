@@ -11,10 +11,9 @@ use bsobbe\ithenticate\Ithenticate;
 error_reporting(0);
 ini_set('max_execution_time', 0);
 
-//$document_content= file_get_contents('../assets/files/3.pdf');
-//var_dump($document_content);
-//die();
 
+
+$mysql_connection = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME, DRIVER);
 
 $user=ITHUSER;
 $pass= base64_decode(ITHPASS);
@@ -37,7 +36,6 @@ if (isset($_POST['form_process'])){
  */
 if (isset($_POST['status'])) {
 
-    error_log(print_r($_POST,true),0);
 
     $essay_title =$_POST['niz'][1];
     $author_firstname = $_POST['niz'][3];
@@ -46,30 +44,19 @@ if (isset($_POST['status'])) {
     $submission_id=$_POST['niz'][13];
 
     $filename =$_POST['niz'][4];
-    //$document_content= file_get_contents($path."/".$filename);
-    $document_content= file_get_contents('../assets/files/3.pdf');
+    $document_content= file_get_contents("http://aseestant.ceesprod.mysafeservers.com/".$path."/".$filename);
+   // $document_content= file_get_contents($path."/".$filename);
+  //  $document_content= file_get_contents('../assets/files/3.pdf');
    // echo $document_content;
     $folder_number='1643419';
 
-
-
-
-
     //$folder_number=$_POST['niz'][6];
 
+
+
     // Funkcija za slanje na iThenticate
-    error_log($essay_title,0);
-    error_log($author_firstname,0);
-    error_log($author_lastname,0);
+    //$id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
 
-    error_log($filename,0);
-    error_log($document_content,0);
-    error_log($folder_number,0);
-
-
-    $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
-
-   // error_log($id,0);
 
     //Obrisati u produkciji
    //  $id=['50789358',$submission_id] ; //false
