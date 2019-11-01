@@ -21,7 +21,8 @@ include '../includes/nav_menu.php';
 
             <?php if ($mail->mail_send == true): ?>
 
-                <form class="mail_forma" onsubmit="myButtonValue.disabled = true; return true;">
+<!--                <form class="mail_forma" onsubmit="myButtonValue.disabled = true; return true;">-->
+                <form class="mail_forma">
                     <p><span id="journal">Časopis:   </span><?php echo $mail->journal; ?></span></p>
                     <span id="span_to">To: </span></span>  <input class="mail_send" name="mail_to" type="text"
                                                                   value=" <?php echo $mail->mail_to; ?>"><br>
@@ -31,7 +32,7 @@ include '../includes/nav_menu.php';
                               rows="12"> <?php echo $mail->mailBody ?></textarea>
                     <input type="hidden" name="headers" value=" <?php echo $mail->headers; ?>">
 
-                    <input type="submit" class='mail_button' value="Pošalji">
+                    <input type="submit" name="myButtonValue" class='mail_button' value="Pošalji">
                     <span class="msg"></span>
                 </form>
 

@@ -23,10 +23,11 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                     data: {status: 'status', niz: niz},
                     success: function (response) {
                        console.log(niz);
+                       response = JSON.parse(response);
                         $("#sending").html("Šaljem dokument " + (i + 1) + " od " + length);
-                        $("#rezultati").append('<p>' + niz[2] + ' '+niz[3] + ' - ' +niz[1] + '<span class="element">' +': '+  response + '</span>' + '<span class="report"></span></p>');
+                        $("#rezultati").append('<p>' + niz[2] + ' '+niz[3] + ' - ' +niz[1] + '<span class="element">' +': '+  response[0] + '</span>' + '<span class="report"></span></p>');
                         console.log(response);
-                         docIds.push(response);
+                        docIds.push(response);
 
                         if (i == (array.length - 1)) {
                             $("#rezultati").append('<br><p><strong>Done!</strong></p>');
@@ -80,30 +81,35 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
             var refreshIntervalId = setInterval(function () {
                 if (i < broj_polja) {
                     documentId = docIds[+i];
-
+                    console.log(docIds);
                     $.ajax({
                         url: "ithenticate.php",
                         async: false,
                         type: "post",
-                        data: {id: documentId},
+                        data: {id: documentId[0], submission_id: documentId[1]},
                         success: function (result) {
 
                             res = JSON.parse(result);
-                        //    console.log(res);
+                            console.log(res);
                             documentStatus = res[0];
                             documentReportId = res[1];
 
-                          //  console.log(documentStatus.is_pending);
-                          //  console.log(documentReportId);
+                            console.log(documentStatus.is_pending);
+                            console.log(documentReportId);
 
 
                             console.log($(".report"));
+
                             if (documentStatus.is_pending == 1) {
                                 $(".report")[i].innerHTML = "<span style='color:blue'> - Processing..</span>";
                             } else if (documentStatus.is_pending == 0 && documentReportId == false) {
                                 $(".report")[i].innerHTML = "<span style='color:red'> - Failed!</span>";
                             } else if (documentStatus.is_pending == 0 && documentReportId != false) {
                                 $(".report")[i].innerHTML = "<span style='color:green'> - Success!</span>";
+
+
+
+
                             }
                         }
                     });

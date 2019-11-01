@@ -20,14 +20,11 @@ $(function () {
             url: 'form.php',
             data: postdata,
             success: function (response) {
-
-
                 alert(response);
-                // location.reload();
+
             }
         });
         e.preventDefault();
-        // e.unbind();
     });
 
     $('input[type=submit]').click(function () {

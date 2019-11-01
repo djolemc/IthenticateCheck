@@ -8,6 +8,11 @@
  **/
 
 if (window.location.pathname.split("/").pop() === 'index.php') {
+
+
+    /*
+    *Kreira formu za svaki fajl koji treba da se salje na proveru
+     */
     $(document).ready(function () {
 
         $("#spinner").append("<img class='spiner' src='../assets/images/loading.gif'>");
@@ -37,7 +42,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                                }
                         HTML += '<table class="form_table main"  border="0">';
                         HTML += '<tr>';
-                        HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="deleteX(this); countDivs();setAsChecked(this)">X</span>' + '</td>';
+                        HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="setAsChecked(this);deleteX(this); countDivs();">X</span>' + '</td>';
                         HTML += '<td class="tw20">' + 'Časopis' + '</td>';
                         HTML += '<td class="tw80">' + '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>' + '</td>';
                         HTML += '</tr>';
@@ -95,11 +100,12 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         
                     });
                     $('#single_submission').append(HTML); // .hide().slideDown(500);
-                    $("#submit_button").show();
 
+                    $("#submit_button").show();
+                    countDivs();
                     i = 1;
 
-
+                        //Funkcija za izbor sledeceg fajla
                     $('.nextFile').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
                         j = $(this).closest('table').attr("id");
@@ -132,6 +138,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         }
                     });
 
+                        //Funkcija za izbor prethodnog fajla
                     $('.previousFile').bind("click", function () {
                         i = $(this).closest('td').next().find('button').attr("id");
                         if (i == 0) {
@@ -173,7 +180,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
     });
 
-
+    //Kapitalizuje prvo slovo stringa
     function ucFirst(string) {
         string = string.toLowerCase();
         capitalized = string.charAt(0).toUpperCase() + string.slice(1);
@@ -181,7 +188,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 
     }
 
-
+    //Onemogucava kliktanje na link ako fajl nije pronadjen
     function removeLinks(){
        var links= document.getElementsByClassName('proba');
 
@@ -207,12 +214,14 @@ function deleteX(obj) {
          //console.log(className);
 
         var elements = document.getElementsByClassName(className);
-        //while (elements.length > 0) {
-          //  elements[0].parentNode.removeChild(elements[0]);
-       // }
+       while (elements.length > 0) {
+           elements[0].parentNode.removeChild(elements[0]);
+       }
     }
 }
-//todo dovrsiti funkciju
+
+
+
 //Upisuje rad u bazu kao proveren
 function setAsChecked(obj) {
 
@@ -227,8 +236,7 @@ function setAsChecked(obj) {
         data: {name:'Insert', id: documentId},
         success: function (response) {
 
-
-            //alert(response);
+        // alert(response);
 
         }
     });
@@ -243,6 +251,7 @@ function countDivs() {
     console.log(numItems.length);
 
     if (numItems.length === 0) {
+
         $("#submit_button").hide();
         $('#test_forma').append('<p class="file_text">Nema fajlova za proveru, pokušajte kasnije</p>');
     }
@@ -266,9 +275,8 @@ $(document).ready(function () {
 
 });
 
+ //Funkcija poziva razlicite Viewere u zavisnosti od tipa dokumenta
 function viewDocuments(obj) {
-
-
     buttons=document.getElementsByClassName('view_button');
 
     for (i=0;i<buttons.length;i++) {

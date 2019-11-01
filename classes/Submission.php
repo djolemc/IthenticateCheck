@@ -31,17 +31,14 @@ class Submission
     {
 
         $this->sql_base = new Database(DB_HOST_2, DB_USER_2, DB_PASS_2, DB_NAME_2, DRIVER_2);
-
-
         $this->journal_title = $db_row->journal_title;
         $this->journal_id = $db_row->journal_id;
 //        $this->author_first = $db_row->author_first;
         $this->author_first = $this->getAuthorName($db_row->author_first);
-
         $this->author_last = $db_row->author_last;
         $this->submission_title = $db_row->submission_title;
         $this->submission_id = $db_row->submission_id;
-        $this->ithenticate_id = $db_row->ithenticate_id;
+        $this->ithenticate_id = $db_row->iThenticateId;
         $this->journal_issn = $db_row->journal_issn;
 
         $this->setPath();

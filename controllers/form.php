@@ -8,11 +8,10 @@ use PHPMailer\PHPMailer\Exception;
 
 /*
  * todo  prebaciti PHPMailer podesavanja u config, srediti fajl
- *
+ * salje mailove iz formw preko Ajax poziva
  */
 
-
-print_r($_POST);
+//print_r($_POST);
 
 $mail_to = $_POST['mail_to'];
 $subject = $_POST['subject'];
@@ -23,7 +22,7 @@ $mail = new PHPMailer(true);
 
 try {
     $mail->CharSet = 'UTF-8';
-   // $mail->isSMTP();
+    // $mail->isSMTP();
     $mail->Host = 'localhost';
     //$mail->Host = 'ceesprod.mysafeservers.com';
     $mail->SMTPAuth = true;
@@ -35,30 +34,27 @@ try {
     $mail->Port = 25;
 
 
+    $mail->setFrom('djole@example.com', 'Probni mail');
+    $mail_to = str_replace(";", ",", $mail_to);
+    $to = explode(', ', $mail_to);
 
-$mail->setFrom('djole@example.com', 'Probni mail');
-
-
-$to= explode(', ', $mail_to);
-
-
-  foreach ($to as $tomail) {
-      $mail->addAddress($tomail);
-  }
+//Dodaje primaoce ako ih ima vise
+    foreach ($to as $tomail) {
+        $mail->addAddress($tomail);
+    }
 
 //$mail->addAddress('dragoljubd@gmail.com');
 
-
-$mail->addBCC('dragoljubd@gmail.com');
-$mail->Subject = $subject;
-$mail->isHTML(true);
-$mail->Body    = $message_body;
+    $mail->addBCC('dragoljubd@gmail.com');
+    $mail->Subject = $subject;
+    $mail->isHTML(true);
+    $mail->Body = $message_body;
 
 //var_dump($mail);
 
-$mail->send();
+//$mail->send();
 
-echo 'Message has been sent';
+    echo 'Message has been sent';
 
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

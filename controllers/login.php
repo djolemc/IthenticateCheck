@@ -13,6 +13,8 @@ if (isset($_POST['logout'])) {
     die;
 }
 
+
+//Poruka o neuspelom logovanju
 if (isset($_SESSION['msg'])) {
     $template->msg = $_SESSION['msg'];
     unset($_SESSION['msg']);

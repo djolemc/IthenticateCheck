@@ -4,6 +4,8 @@
  * User: Dragoljub
  * Date: 10/2/2019
  * Time: 3:14 PM
+ *
+ * Prikaz tabele sa podacima za kopiranje na google Docs
  */
 
 include '../includes/header.php';
@@ -16,7 +18,7 @@ include '../includes/nav_menu.php';
 <?php
 if (isset($_SESSION['form'])) {
     $table_data = $_SESSION['form'];
-//    var_dump($table_data);
+
     echo '<h3 id="rez_prov">Rezultati provere:</h3>';
 
     ?>
