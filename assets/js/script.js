@@ -15,7 +15,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
      */
     $(document).ready(function () {
 
-        $("#spinner").append("<img class='spiner' src='../assets/images/loading.gif'>");
+        $("#spinner").append("<img class='spiner' src='../assets/images/new_spinner.gif'>");
 
         $.ajax({
             url: "index.php",

@@ -29,8 +29,8 @@ try {
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
     //$mail->Port = 587;
-    //$mail->Username   = 'djole@test.ceesprod.mysafeservers.com';                     // SMTP username
-    //$mail->Password   = 'HIQ6WmRVQ3';
+    //$mail->Username   = MAIL_USER;                     // SMTP username
+    //$mail->Password   = MAIL_PASS;
 
     $mail->Port = 25;
 
