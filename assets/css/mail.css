@@ -9,7 +9,11 @@ html {
     margin-left:8px;
 }
 #span_to {
-    margin-right: 36px;
+    margin-right: 35px;
+}
+
+#bcc {
+    margin-right: 22px;
 }
 
 #za_slanje {
@@ -29,7 +33,7 @@ html {
     /*background: #f3f2f9;*/
     background: lightgray;
     padding: 20px;
-    min-height:410px;
+    min-height:430px;
 
 
 }

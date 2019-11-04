@@ -14,15 +14,20 @@
 <!--            <li class="nav-item active">-->
 <!--                <a class="nav-link" href="ithenticate.php">Ithenticate <span class="sr-only">(current)</span></a>-->
 <!--            </li>-->
+
             <li class="nav-item">
                 <a class="nav-link active" href="mail.php">E-mail</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="report.php">Izveštaj</a>
             </li>
+
         </ul>
         <?php if ($_SESSION['is_logged_in']==true) : ?>
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="#myModal" data-toggle = "modal" data-target= "#myModal" class="nav-link active">Pomoć</a>
+            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">Korisnik: <?php echo $_SESSION['username'];?></a>
             </li>
@@ -38,5 +43,9 @@
     </div>
   </div>
 </nav>
+
+<?php include "../templates/help.php"; ?>
+
+
 
 <div class="container-fluid">

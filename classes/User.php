@@ -39,7 +39,8 @@ class User {
     public function localLogin($username, $password){
         $user =ucfirst(strtolower($username));
 
-        if ((in_array($user, USERNAMES)) && (md5($password) == PASSWORD)) {
+
+        if ((in_array($user, USERNAMES)) && password_verify($password,PASSWORD)) {
             $_SESSION['is_logged_in'] = true;
             $_SESSION['user_id'] = 1;
             $_SESSION['username'] = $user;

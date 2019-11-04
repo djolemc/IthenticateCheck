@@ -21,7 +21,7 @@ class SendMail {
     public $ithenticatePass;
     public $mailBody;
     public $headers;
-    public $bcc = "djole@ceon.rs";
+    public $bccc = "djole@ceon.rs";
     public $mail_send = false;
     
     
@@ -70,7 +70,7 @@ class SendMail {
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'Razvojni tim SCIndeksa' . "\r\n";
-        $headers .= 'bcc: nikola@ceon.rs' . "\r\n";
+        //$headers .= 'bcc: nikola@ceon.rs' . "\r\n";
 
         $this->headers = $headers;
 

@@ -2,6 +2,9 @@
 $mysql_connection = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME, DRIVER);
 
 
+
+
+
 if (isset($_POST['index_load'])) {
     getSubmissions($mysql_connection);
     die();

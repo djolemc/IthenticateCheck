@@ -17,6 +17,7 @@ $mail_to = $_POST['mail_to'];
 $subject = $_POST['subject'];
 $message_body = $_POST['message_body'];
 $headers = $_POST['headers'];
+$bcc=$_POST['bcc'];
 
 $mail = new PHPMailer(true);
 
@@ -45,12 +46,12 @@ try {
 
 //$mail->addAddress('dragoljubd@gmail.com');
 
-    $mail->addBCC('dragoljubd@gmail.com');
+    $mail->addBCC($bcc);
     $mail->Subject = $subject;
     $mail->isHTML(true);
     $mail->Body = $message_body;
 
-//var_dump($mail);
+
 
 //$mail->send();
 

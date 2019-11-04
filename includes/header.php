@@ -32,6 +32,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="../assets/css/login.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/index.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/mail.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/help_modal.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/report.css" type="text/css">
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"

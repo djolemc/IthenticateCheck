@@ -23,9 +23,13 @@ include '../includes/nav_menu.php';
 
 <!--                <form class="mail_forma" onsubmit="myButtonValue.disabled = true; return true;">-->
                 <form class="mail_forma">
-                    <p><span id="journal">Časopis:   </span><?php echo $mail->journal; ?></span></p>
-                    <span id="span_to">To: </span></span>  <input class="mail_send" name="mail_to" type="text"
+                    <p><span id="journal">Časopis:   </span><?php echo $mail->journal; ?></p>
+                    <span id="span_to">To: </span>  <input class="mail_send" name="mail_to" type="text"
                                                                   value=" <?php echo $mail->mail_to; ?>"><br>
+
+                    <span id="bcc">BCC: </span>  <input class="mail_send" name="bcc" type="text"
+                                                                  value=" <?php echo $mail->bccc;?>"><br>
+
                     <span>Subject: </span> <input class="mail_send" type="text" name="subject"
                                                   value=" <?php echo $mail->subject; ?>"><br>
                     <textarea class="mytextarea" name="message_body" id="" cols="30"
