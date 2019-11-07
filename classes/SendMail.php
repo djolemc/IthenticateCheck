@@ -57,7 +57,7 @@ class SendMail {
         $body .= '<li>za Password: <strong>'.$this->ithenticatePass.'</strong></li>';
         $body.='</ul>';
         $body.='<br>';
-        $body.='S poštovanjem, ';
+        $body.='S poštovanjem,<br>';
         $body.='Razvojni tim SCIndeksa';
 
 

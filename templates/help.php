@@ -20,7 +20,7 @@
                         on se neće više pojavljivati u spisku.</li>
                         <li><strong class="vazno">VAŽNO!!! </strong>Ukoliko je neki rad uokviren crvenom bojom, to znači da je taj fajl veći od 20 megabajta, i ne može se slati automatski na proveru.
                         U tom slučaju, potrebno je da skinemo fajl iz aplikacije ili iz Asistenta, da ga obrišemo iz aplikacije i da ga pošaljemo ručno preko iThenticate sajta. Pre brisanja
-                         treba zapisati ID rada, naslov i ime autora</li>
+                         treba zapisati ID rada, naslov i ime autora. Fajl možemo da skinemo klikom na ime fajla, ili iz aplikacije za pregled</li>
                     </ol>
 
                 <p><strong>2. </strong> Nakon završene provere fajlova i eventualnih ispravki, klikom na dugme 'Pošalji na proveru' pokrećemo slanje na iThenticate servis.</p>
@@ -31,7 +31,8 @@
                 <p>Mogući statusi su</p>
                     <ul>
                         <li>Processing...  - znači da je fajl poslat i da je provera u toku </li>
-                        <li>Failed - fajl je poslat, ali provera nije uspela. U tom slučaju je potrebno zapisati podatke o fajlu, obriati ga iz spiska sa prve strane i poslati ručno na proveru</li>
+                        <li>Failed - fajl je poslat, ali provera nije uspela. U tom slučaju je potrebno zapisati podatke o fajlu, obrisati ga iz spiska sa prve strane i poslati ručno na proveru. Takođe treba obrisati fajl
+                        iz iThenticate foldera</li>
                         <li>Success!  - fajl je uspešno proveren na plagijarizam. Kad je provera uspešna, rad se zapisuje u bazu kao proveren i neće se više pojavljivati na spisku na početnoj strani</li>
                     </ul>
 

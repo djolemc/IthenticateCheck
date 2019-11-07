@@ -13,31 +13,38 @@ tinymce.init({
 $(function () {
     $('.mail_forma').on('submit', function (e) {
         var postdata = $(this).serializeArray();
-
-        console.log(postdata);
+         console.log(postdata);
         $.ajax({
             type: 'post',
             url: 'form.php',
             data: postdata,
             success: function (response) {
                 alert(response);
+                if (response=='Message has been sent') {
+
+
+
+                }
 
             }
         });
         e.preventDefault();
-    });
-
-    $('input[type=submit]').click(function () {
-        $(this).prop({
-            disabled: true,
-            value: "Poslato"
-        });
-        $(this).css("background", 'gray');
-        $(this).closest('form').trigger('submit');
-
 
     });
+
+
+       $('input[type=submit]').click(function () {
+           $(this).prop({
+               disabled: true,
+               value: "Poslato"
+           });
+           $(this).css("background", 'gray');
+           $(this).closest('form').trigger('submit');
+
+
+       });
 
 });
+
 
 

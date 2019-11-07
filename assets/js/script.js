@@ -150,7 +150,7 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         $(this).closest('td').prev().find('.proba').html('Naziv dokumenta: ' + '<a href="'+path+"/"+files_array[i][0]+'">' + files_array[i][0]);
                         $(this).closest('.single_row').find('.filename').children('input').attr('value', files_array[i][0]);
 
-                        if (files_array[i][1] > 0) {
+                        if (files_array[i][1] >= 20) {
 
                             $(this).parent().find('span.proba').css("color", "red");
                             $(this).closest('div.single_row').css("border", "2px solid red");
