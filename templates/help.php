@@ -23,6 +23,7 @@
                          treba zapisati ID rada, naslov i ime autora. Fajl možemo da skinemo klikom na ime fajla, ili iz aplikacije za pregled</li>
                     </ol>
 
+                <br>
                 <p><strong>2. </strong> Nakon završene provere fajlova i eventualnih ispravki, klikom na dugme 'Pošalji na proveru' pokrećemo slanje na iThenticate servis.</p>
                 <p> Otvara se nova strana sa informacijama o poslatim radovima:</p>
                 <img class='help_img' src="../assets/images/help_02.PNG">
@@ -36,15 +37,19 @@
                         <li>Success!  - fajl je uspešno proveren na plagijarizam. Kad je provera uspešna, rad se zapisuje u bazu kao proveren i neće se više pojavljivati na spisku na početnoj strani</li>
                     </ul>
 
+                <br>
                 <p><strong>3. </strong>Kada je provera završena, klikom na opciju E-mail u glavnom meniju prelazimo na stranu za slanje mailova.</p>
                 <img class='help_img' src="../assets/images/help_03.PNG">
 
-                 <p>Na ovoj stranice se otvaraju forme za slanje mailova. Pre slanja možemo da napravimo izmene ukoliko je potrebno (primalac, subject, tekst maila).
-                 Klikom na dugme 'Pošalji' šaljemo mail. Nakon toga naziv dugmeta se menja u 'Poslato' i nije moguće ponovo poslati isti mail</p>
+                 <p>Na ovoj stranici se otvaraju forme za slanje mailova. Pre slanja možemo da napravimo izmene ukoliko je potrebno (primalac, subject, tekst maila).
+                 Klikom na dugme 'Pošalji' šaljemo mail. Nakon toga naziv dugmeta se menja u 'Poslato' i nije moguće ponovo poslati isti mail. Ukoliko dodje do greške, mail treba poslati
+                 preko servisa 'JournalInfo'</p>
 
+                <br>
                 <p><strong>4. </strong>Nakon što pošaljemo sve mailove, otvaramo stranu 'Izveštaj'. Ovde dobijamo tabelu sa informacijama o poslatim radovima, koju je potrebno kopirati u
                     <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Dvz3xm0NTNcAunFEukms5WeuMZWCQXQIVZ4imvIpdpA/edit#gid=1388313093">dokument na Google Docs</a> .
-                    Klikom na dugme 'Selektuj tabelu' kopiramo sve podatke iz tabele koje samo treba da nalepimo u Google dokument.</p>
+                    Klikom na dugme 'Selektuj tabelu' kopiramo sve podatke iz tabele koje samo treba da nalepimo u Google dokument. U ovoj tabeli će se nalaziti i radovi čiji je status kod slanja na iThenticate
+                    failed.</p>
 
             </div>
             <div class="modal-footer">

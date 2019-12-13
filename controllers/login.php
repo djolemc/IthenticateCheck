@@ -26,7 +26,7 @@ echo $template;
 if (isset($_POST['do_login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $user->localLogin($username, $password);
+ $user->localLogin($username, $password);
 
     if (isset($_SESSION['is_logged_in'])) {
         header("Location: index.php");

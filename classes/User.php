@@ -36,7 +36,7 @@ class User {
         }
     }
 
-    public function localLogin($username, $password){
+    public  function localLogin($username, $password){
         $user =ucfirst(strtolower($username));
 
 
@@ -51,12 +51,12 @@ class User {
     }
 
 
-    public function logout() {
+    public  function logout() {
         unset($_POST['logout']);
         unset($_SESSION['is_logged_in']);
         session_destroy();
         $host  = $_SERVER['HTTP_HOST'];
-        $link = "http://$host/plagijarizam2/controllers/login.php";
+        $link = "http://$host/iThenticateChecker/controllers/login.php";
         return $link;
 //        die();
     }

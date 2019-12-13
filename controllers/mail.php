@@ -21,7 +21,11 @@ $template = new Template("../templates/mail.php");
  * pogodne za slanje maila (Svakom casopisu dodjeljuje radove
  * i parametre za pristup
  */
+
+
 if (isset($_SESSION['form'])) {
+
+
 
     $journals = $_SESSION['form'];
     $mails = arrayCreate($journals);
@@ -40,6 +44,8 @@ if (isset($_SESSION['form'])) {
     }
 
 //Assign template vars
+
+
     $template->mailObjects = $mailObjects;
 
 }

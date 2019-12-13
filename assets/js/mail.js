@@ -10,6 +10,10 @@ tinymce.init({
 
 });
 
+/*
+Salje podatke iz mail forme na form.php stranicu i salje mail
+ */
+
 $(function () {
     $('.mail_forma').on('submit', function (e) {
         var postdata = $(this).serializeArray();
@@ -22,8 +26,6 @@ $(function () {
                 alert(response);
                 if (response=='Message has been sent') {
 
-
-
                 }
 
             }
@@ -32,6 +34,9 @@ $(function () {
 
     });
 
+    /*
+    Menja submit dugme u 'poslato' i disejbluje ga
+     */
 
        $('input[type=submit]').click(function () {
            $(this).prop({

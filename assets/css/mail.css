@@ -59,3 +59,10 @@ html {
     font-weight: 600;
     margin-right: 10px;
 }
+
+.no_ith {
+
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+}

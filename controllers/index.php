@@ -50,7 +50,7 @@ function getSubmissions($mysql_connection)
 //    order by journal_title');
 
    $mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam2 where date_assigned > \'2019-10-26 00:00:00\';');
-   // $mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam limit 20 offset 60');
+  //  $mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam limit 20 offset 150');
     $results = ($mysql_connection->resultset());
 
     $arr = [];

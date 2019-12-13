@@ -29,7 +29,8 @@
                 <a href="#myModal" data-toggle = "modal" data-target= "#myModal" class="nav-link active">Pomoć</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Korisnik: <?php echo $_SESSION['username'];?></a>
+<!--                <a class="nav-link">Korisnik: --><?php //echo $_SESSION['username'];?><!--</a>-->
+                <a class="nav-link"  href="ithenticate_list.php">Spisak časopisa</a>
             </li>
             <li class="nav-item active">
                 <a id="logout" class="nav-link" href="#">Odjavi se<span class="sr-only">(current)</span></a>

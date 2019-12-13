@@ -40,6 +40,17 @@ include '../includes/nav_menu.php';
                     <span class="msg"></span>
                 </form>
 
+
+
+            <?php endif; endforeach;
+
+        foreach ($mailObjects as $mail): ?>
+
+            <?php if ($mail->mail_send == false): ?>
+                <div class="row">
+                <p class="no_ith"><span >Časopis koji nema otvorene parametre u iThenticate-u:  </span><strong><?php echo $mail->journal; ?></strong></p>
+                </div>
+
             <?php endif; endforeach;
     }
     else { ?>

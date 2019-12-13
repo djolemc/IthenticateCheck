@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 /*
  * todo  prebaciti PHPMailer podesavanja u config, srediti fajl
- * salje mailove iz formw preko Ajax poziva
+ * salje mailove iz forme preko Ajax poziva
  */
 
 //print_r($_POST);
@@ -30,7 +30,7 @@ try {
     $mail->SMTPSecure = 'tls';
     //$mail->Port = 587;
     //$mail->Username   = MAIL_USER;                     // SMTP username
-    //$mail->Password   = MAIL_PASS;
+    //$mail->Password   = MAIL_PASS;                    //Otkomentarisati user i pass i mail->send() funckiju linija 56
 
     $mail->Port = 25;
 

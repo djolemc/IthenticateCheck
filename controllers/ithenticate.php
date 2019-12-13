@@ -36,7 +36,6 @@ if (isset($_POST['form_process'])){
  */
 if (isset($_POST['status'])) {
 
-
     $essay_title =$_POST['niz'][1];
     $author_firstname = $_POST['niz'][3];
     $author_lastname =$_POST['niz'][2];
@@ -45,23 +44,22 @@ if (isset($_POST['status'])) {
 
     $filename =$_POST['niz'][4];
     $document_content= file_get_contents("http://aseestant.ceesprod.mysafeservers.com/".$path."/".$filename);
-   // $document_content= file_get_contents($path."/".$filename);
-  //  $document_content= file_get_contents('../assets/files/3.pdf');
-   // echo $document_content;
+
     $folder_number='1643419';
 
-    //$folder_number=$_POST['niz'][6];
+   //$folder_number=$_POST['niz'][6];
 
 
 
     // Funkcija za slanje na iThenticate
-    //$id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
 
+    if ($folder_number =='') {
+            $id = "Časopis nema iThenticate_Id";
+    } else {
 
-    //Obrisati u produkciji
-   //  $id=['50789358',$submission_id] ; //false
-    //  $id='50784425';
-   // $id2='50496982';
+        $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
+    }
+
     $ids=[$id,$submission_id];
 
     echo json_encode($ids);
@@ -124,12 +122,6 @@ echo $template;
 
 
 
-//LISTA SVIH FOLDERA
-//$ith = new Ithenticate($user,$pass);
-
-//var_dump($ith);
-//$list = $ith->fetchFolderList();
-//$sid = $ith->getSid());
 
 
 

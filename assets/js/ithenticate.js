@@ -22,10 +22,10 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                     type: "post",
                     data: {status: 'status', niz: niz},
                     success: function (response) {
-                       console.log(niz);
-                       response = JSON.parse(response);
+                        console.log(niz);
+                        response = JSON.parse(response);
                         $("#sending").html("Šaljem dokument " + (i + 1) + " od " + length);
-                        $("#rezultati").append('<p>' + niz[2] + ' '+niz[3] + ' - ' +niz[1] + '<span class="element">' +': '+  response[0] + '</span>' + '<span class="report"></span></p>');
+                        $("#rezultati").append('<p>' + niz[2] + ' ' + niz[3] + ' - ' + niz[1] + '<span class="element">' + ': ' + response[0] + '</span>' + '<span class="report"></span></p>');
                         console.log(response);
                         docIds.push(response);
 
@@ -42,7 +42,6 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
             i++
         }, 500);
 
-       // docIds = ['50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982', '50789358', '50789358', '50784425', '50496982', '50496982', '50496982', '50496982', '50496982'];
 
         console.log(docIds);
 
@@ -65,9 +64,8 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
         //Funkcija za osvezavanje statusa poslatih fajlove
         $("#ucitaj").bind("click", function () {
             broj_polja = $(".element").length;
-            //   documentReportId=[];
 
-            console.log(broj_polja);
+            //   documentReportId=[];
 
             $('.report').each(function (i) {
                 $(".report")[i].innerHTML = '';
@@ -94,8 +92,8 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                             documentStatus = res[0];
                             documentReportId = res[1];
 
-                            console.log(documentStatus.is_pending);
-                            console.log(documentReportId);
+                            // console.log(documentStatus.is_pending);
+                            // console.log(documentReportId);
 
 
                             console.log($(".report"));
@@ -106,8 +104,6 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                                 $(".report")[i].innerHTML = "<span style='color:red'> - Failed!</span>";
                             } else if (documentStatus.is_pending == 0 && documentReportId != false) {
                                 $(".report")[i].innerHTML = "<span style='color:green'> - Success!</span>";
-
-
 
 
                             }

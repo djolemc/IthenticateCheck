@@ -1,0 +1,109 @@
+.row {
+    display: flex;
+    /*height: 100vh;*/
+}
+
+.title {
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #808080;
+    text-align: center;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    flex: 50%;
+}
+.column1 {
+    flex: 50%;
+    border-left:1px solid gray;
+    max-height: calc(100vh - 71px);
+    overflow-y:scroll;
+
+}
+
+.casopisi {
+    border: 1px solid gray;
+}
+
+#searchJournal {
+position: relative;
+    display: block;
+    margin:0 auto;
+    margin-top: 50px;
+    /*margin-left: 15px;*/
+    width: 500px;
+    padding: 5px;
+}
+
+#ith_form {
+    border: 1px solid #6a9eb8;
+    position: relative;
+    border-radius: 5px;
+    width: 500px;
+    margin: 0 auto !important;
+    margin-top: 50px !important;
+}
+
+#ith_form select {
+    margin-left: 5px;
+    border-radius: 5px;
+    width: 90%;
+}
+
+#ith_form input {
+    width: 90%;
+}
+#ith_form button {
+    float: right;
+    margin-right: 30px;
+    width: 100px;
+}
+.column1 ul li {
+    list-style-type: none;
+}
+
+.column1 li:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+#ith_form td {
+    padding: 10px;
+}
+
+#ith_form td .d2 {
+    display: block;
+    margin:0 auto;
+    /*border: 1px solid gray;*/
+    text-align: right;
+}
+
+#ith_list {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-top:20px;
+    width: 500px;
+
+}
+
+.msg {
+    width: 500px;
+    height: 48px;
+    margin: 0 auto !important;
+    background-color: #6a9eb8;
+    margin-top: 20px !important;
+    border-radius: 5px;
+    color:white;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+
+
+}

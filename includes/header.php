@@ -2,7 +2,7 @@
 
 
 if (!isset($_SESSION['is_logged_in'])) {
-    if ($_SERVER['REQUEST_URI'] === '/plagijarizam2/controllers/login.php') {
+    if ($_SERVER['REQUEST_URI'] === '/iThenticateChecker/controllers/login.php') {
 //        header("Location: login.php");
     } else {
         header("Location: login.php");
@@ -34,6 +34,7 @@ and open the template in the editor.
     <link rel="stylesheet" href="../assets/css/mail.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/help_modal.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/report.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/ithenticate.css" type="text/css">
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -49,7 +50,7 @@ and open the template in the editor.
     <link href="https://fonts.googleapis.com/css?family=Noticia+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
     <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=mbm0vjk60ppr25e4m3mxfc462nx4hncthuztgnymgkz3e3w8"></script>
-    <title>Plagiarism Check</title>
+    <title>iThenticateChecker</title>
 
 
 </head>

@@ -211,10 +211,8 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
 function deleteX(obj) {
     if (confirm('Da li ste sigurni da želite da obrišete ovaj fajl?')) {
         className = (obj.className.split(" ")[0]);
-         //console.log(className);
-
         var elements = document.getElementsByClassName(className);
-       while (elements.length > 0) {
+        while (elements.length > 0) {
            elements[0].parentNode.removeChild(elements[0]);
        }
     }
@@ -229,7 +227,6 @@ function setAsChecked(obj) {
     var elements = document.getElementsByClassName(className);
     documentId=elements[18].value;
 
-    console.log(documentId);
     $.ajax({
         url: "index.php",
         type: 'post',
