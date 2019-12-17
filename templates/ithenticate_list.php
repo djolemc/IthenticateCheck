@@ -24,7 +24,7 @@ include '../includes/nav_menu.php';
         <?php endif; ?>
 
         <form id='ith_forma' action="ithenticate_list.php" method="post" name="ith_forma">
-            <p class="title"> Unos novog iThenticate Id-ja u bazu: </p>
+            <p class="title"> Unos novog folder Id-ja u bazu: </p>
             <table id="ith_form">
                 <tr>
                     <td> Odaberite časopis:</td>

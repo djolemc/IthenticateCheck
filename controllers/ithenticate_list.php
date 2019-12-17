@@ -48,8 +48,12 @@ $template = new Template("../templates/ithenticate_list.php");
 
 
 //$list = $ith->fetchFolderList();
-$list = $ith->fetchFolderInGroup();
 
+if (!$_SESSION['list']) {
+
+    $_SESSION['list'] = $ith->fetchFolderInGroup();
+
+}
 
 
 
@@ -59,7 +63,7 @@ $list = $ith->fetchFolderInGroup();
 //print_r($list);
 
 $template->journals = $journals;
-$template->list= $list;
+$template->list= $_SESSION['list'];
 
 
 echo $template;
