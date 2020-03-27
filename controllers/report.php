@@ -10,4 +10,9 @@ require '../config/init.php';
 
 $template = new Template("../templates/report.php");
 
+
+
+
+
+
 echo $template;

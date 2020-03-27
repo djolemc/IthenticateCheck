@@ -146,7 +146,7 @@ input {
 ;
 }
 
-.title {
+.article_title {
     /*margin-left: 52px;*/
     width: 100%;
 }
@@ -314,4 +314,11 @@ td {
 
 #large_submission {
     display: none;
+}
+
+.no_ithenticate {
+    float: right;
+    color: red;
+    font-weight: bolder;
+    padding-right: 5px;
 }

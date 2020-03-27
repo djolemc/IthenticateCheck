@@ -37,7 +37,7 @@ include '../includes/nav_menu.php';
                     <input type="hidden" name="headers" value=" <?php echo $mail->headers; ?>">
 
                     <input type="submit" name="myButtonValue" class='mail_button' value="Pošalji">
-                    <span class="msg"></span>
+<!--                    <span class="msg"></span>-->
                 </form>
 
 

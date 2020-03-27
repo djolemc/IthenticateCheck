@@ -16,7 +16,7 @@ include '../includes/nav_menu.php';
         <div class="row">
 
             <h5 id="title">Izdvojeni članci kandidati iz e-Ur-a za proveru na plagijarizam:</h5>
-            <h6 id="error" style="display: none">Greška prilikom komunikacije sa serverom!</h6>
+            <h6 id="error" style="display: none">Greška prilikom komunikacije sa SQL serverom!</h6>
 
         </div>
         <div class="row">

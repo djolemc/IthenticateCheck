@@ -86,7 +86,7 @@ include '../includes/nav_menu.php';
 </div>
 
 
-<!--insert ignore into journal_settings (journal_id, locale, setting_name, setting_value, setting_type) VALUES ('432','','iThenticateId', '1543982', 'int');-->
+
 
 
 <?php include '../includes/footer.php'; ?>
@@ -97,14 +97,6 @@ include '../includes/nav_menu.php';
 
         $('#ithenticate_id').val($(this).val()) ;
     });
-
-    // $('#journal_id').on('change', function() {
-    //     input = $('#journal_id option:selected').text().trim();
-    //     filter = input.toUpperCase().replace(/([0-9]+ - )/g, '');
-    //     console.log(filter);
-    //
-    //     // $('#ithenticate_id').val($(this).val()) ;
-    // });
 
 
     function searchFunction() {

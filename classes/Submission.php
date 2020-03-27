@@ -44,6 +44,14 @@ class Submission
         $this->setPath();
         $this->setFilenames();
         $this->setIthenticateData();
+
+        if ($this->ithenticate_id=='00000') {
+            $this->mail_to = "Časopis nema otvorene parametre za pristup iThenticate-u";
+        }
+
+
+
+
     }
 
     private function getAuthorName($name) {
@@ -80,6 +88,12 @@ class Submission
 
         $files = [];
         if (is_dir($dir)) {
+
+            if (is_dir($dir . "/review/revision") && $this->is_dir_empty($dir . "/review/revision") == false) {
+                $dir .= "/review/revision";
+                $this->path .= "/review/revision";
+            }
+            else
 
             if (is_dir($dir . "/review") && $this->is_dir_empty($dir . "/review") == false) {
                 $dir .= "/review";

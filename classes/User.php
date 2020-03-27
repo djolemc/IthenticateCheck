@@ -56,7 +56,7 @@ class User {
         unset($_SESSION['is_logged_in']);
         session_destroy();
         $host  = $_SERVER['HTTP_HOST'];
-        $link = "http://$host/iThenticateChecker/controllers/login.php";
+        $link = "https://$host/iThenticateChecker/controllers/login.php";
         return $link;
 //        die();
     }

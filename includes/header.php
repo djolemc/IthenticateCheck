@@ -28,6 +28,7 @@ and open the template in the editor.
     <!--        <script src="https://kit.fontawesome.com/3318182a2b.js" crossorigin="anonymous"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/login.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/index.css" type="text/css">

@@ -21,11 +21,12 @@ $journals = $mysql_connection->resultset();
 
 if (isset($_POST['insertIds'])) {
 
-    $journal_id = $_POST['journal_id'];
-    $ithenticate_id = $_POST['ithenticate_id'];
+    $journal_id = htmlspecialchars(strip_tags($_POST['journal_id']));
+    $ithenticate_id = htmlspecialchars(strip_tags($_POST['ithenticate_id']));
 
   //  $query = ("INSERT INTO cees_plagiarism_articles_exported (article_id, date_exported) values (:article_id, NOW()) on duplicate key UPDATE date_exported=NOW()");
-    $query = ("insert ignore into journal_settings (journal_id, locale, setting_name, setting_value, setting_type) VALUES (:journal_id,'','iThenticateId', :ithenticate_id, 'int')");
+    $query = ("insert ignore into journal_settings (journal_id, locale, setting_name, setting_value, setting_type) VALUES (:journal_id,'','iThenticateId', :ithenticate_id, 'int') 
+    on duplicate key update setting_value=:ithenticate_id;");
     $mysql_connection->query($query);
     $mysql_connection->bind(":journal_id", $journal_id);
     $mysql_connection->bind(":ithenticate_id", $ithenticate_id);
@@ -35,6 +36,8 @@ if (isset($_POST['insertIds'])) {
 
 
     $_SESSION['msg']="iThenticateId je uspešno upisan u bazu";
+   // $_SESSION['msg']+=var_dump($_post);
+
 
 
 
@@ -51,7 +54,7 @@ $template = new Template("../templates/ithenticate_list.php");
 
 if (!$_SESSION['list']) {
 
-    $_SESSION['list'] = $ith->fetchFolderInGroup();
+    $_SESSION['list'] = $ith->fetchFolderInGroup('47568');
 
 }
 

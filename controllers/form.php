@@ -37,7 +37,7 @@ try {
 
     $mail->setFrom('aseestant@ceon.rs', 'SCIndeks Asistent');
     $mail_to = str_replace(";", ",", $mail_to);
-    $to = explode(', ', $mail_to);
+    $to = explode(',', $mail_to);
 
 //Dodaje primaoce ako ih ima vise
     foreach ($to as $tomail) {

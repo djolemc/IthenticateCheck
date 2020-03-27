@@ -31,6 +31,13 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                     var HTML = '';
                     $.each(data, function (i, item) {
 
+                        var ithenticate_params ='';
+                        if (item.mail_to == "Časopis nema otvorene parametre za pristup iThenticate-u") {
+                            ithenticate_params = 'Proverite iThenticate parametre za časopis!'
+                        }
+
+
+
                         files_array = JSON.parse(item.filenames);
 
                         //provera da li je fajl veci od 20mb
@@ -44,12 +51,13 @@ if (window.location.pathname.split("/").pop() === 'index.php') {
                         HTML += '<tr>';
                         HTML += '<td class="tw5">' + ' <span  class="form[checked' + i + '] remove_button"  data-toggle="tooltip" title="Obriši fajl"  name="form[checked<?php echo $i?>][]" onclick="setAsChecked(this);deleteX(this); countDivs();">X</span>' + '</td>';
                         HTML += '<td class="tw20">' + 'Časopis' + '</td>';
-                        HTML += '<td class="tw80">' + '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>' + '</td>';
+                        HTML += '<td class="tw80">' + '<input class="form[checked' + i + '] journal_title" type="text" hidden name="form[checked' + i + '][]" value="' + item.journal_title + '"><strong>' + item.journal_title + '</strong><span>' +
+                                '<span class="no_ithenticate">' + ithenticate_params + '</span>' + '</td>';
                         HTML += '</tr>';
                         HTML += '<tr>';
                         HTML += '<td class="tw5"></td>';
                         HTML += '<td class="tw20">' + 'Naslov' + '</td>';
-                        HTML += '<td>' + '<textarea class="form[checked' + i + '] title article_title" rows="1" type="text" name="form[checked' + i + '][]">' + ucFirst(item.submission_title) + "\\" + item.submission_id + "\\" + '</textarea>' + '</td>';
+                        HTML += '<td>' + '<textarea rows="2" class="form[checked' + i + ']  article_title" rows="1" type="text" name="form[checked' + i + '][]">' + ucFirst(item.submission_title) + " " +"\\" + item.submission_id + "\\" + '</textarea>' + '</td>';
                         HTML += '</tr>';
                         HTML += '<tr>';
                         HTML += '<td class="tw5">' + '<span class="form[checked' + i + '] number">' + "Rb:" + (i + 1) + ". " + '</span>' + '</td>';
@@ -287,14 +295,17 @@ function viewDocuments(obj) {
     var path = obj.getAttribute("name");
     var href = link.split(".");
     var ext = href.slice(-1)[0];
+
+
     if (ext == 'pdf') {
-        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
+        document.getElementById('frame').innerHTML = '<iframe title="PDF in an i-Frame" src="https://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="1" scrolling="auto"  ></iframe>';
     } else if (ext == 'docx' || ext == 'doc') {
         /* office online viewer, ne cita rtf */
+
         document.getElementById('frame').innerHTML = '<iframe src="https://view.officeapps.live.com/op/embed.aspx?src=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '" frameborder="0"></iframe>';
     } else if (ext == 'rtf') {
         //google docs viewer
-        document.getElementById('frame').innerHTML = '<iframe src="http://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
+        document.getElementById('frame').innerHTML = '<iframe src="https://docs.google.com/gview?url=http://aseestant.ceesprod.mysafeservers.com' + path + '/' + link + '&embedded=true"></iframe>';
     } else {
         document.getElementById('frame').innerHTML = " <i id=\"file_icon\" class=\"fa fa-meh-o\"></i><p id=\"file_not_found\">Fajl ne postoji na serveru.</p>";
     }

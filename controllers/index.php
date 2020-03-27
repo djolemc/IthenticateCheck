@@ -49,9 +49,11 @@ function getSubmissions($mysql_connection)
 //	GROUP BY s.submission_id
 //    order by journal_title');
 
-   $mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam2 where date_assigned > \'2019-10-26 00:00:00\';');
-  //  $mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam limit 20 offset 150');
+//   $mysql_connection->query('SELECT * FROM plagijarizam2 where date_assigned > \'2020-02-01 16:00:00\';');
+   $mysql_connection->query('SELECT * FROM plagijarizam2 where date_assigned > \'2020-02-01 16:00:00\'  and date_assigned < concat (CURDATE(), \' \', "09:00:00") ;');
+    //$mysql_connection->query('SELECT * FROM ceon00_aseestant.plagijarizam limit 3 offset 150');
     $results = ($mysql_connection->resultset());
+
 
     $arr = [];
     foreach ($results as $row) {

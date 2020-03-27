@@ -43,7 +43,7 @@ if (isset($_POST['status'])) {
     $submission_id=$_POST['niz'][13];
 
     $filename =$_POST['niz'][4];
-    $document_content= file_get_contents("http://aseestant.ceesprod.mysafeservers.com/".$path."/".$filename);
+    $document_content= file_get_contents("https://aseestant.ceesprod.mysafeservers.com/".$path."/".$filename);
 
     $folder_number='1643419';
 
@@ -57,7 +57,7 @@ if (isset($_POST['status'])) {
             $id = "Časopis nema iThenticate_Id";
     } else {
 
-        $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
+      //  $id = $ith->submitDocument($essay_title, $author_firstname, $author_lastname, $filename, $document_content, $folder_number);
     }
 
     $ids=[$id,$submission_id];

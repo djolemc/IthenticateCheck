@@ -51,6 +51,17 @@
                     Klikom na dugme 'Selektuj tabelu' kopiramo sve podatke iz tabele koje samo treba da nalepimo u Google dokument. U ovoj tabeli će se nalaziti i radovi čiji je status kod slanja na iThenticate
                     failed.</p>
 
+
+<!--                <p><strong>5. </strong>Opcija "Spisak časopisa" (koristiti oprezno)-->
+<!--                    <img class='help_img' src="../assets/images/help_04.PNG">-->
+<!--                Svaki časopis u iThenticate sistemu ima jedinstven folder Id, koji je potrebno ubaciti u Aseestent bazu kada kreiramo nov časopis. Ova stranica nam olakšava taj posao.-->
+<!--                    Sa leve strane se nalazi select box sa spiskom svih časopisa iz Aseestent baze. U polje iThenticate Id upisujemo Id novog časopisa koji želimo da unesemo u bazu.-->
+<!--                    Na desnoj strani prozora se nalaze izlistani svi časopisi za koje imamo otvorene foldere u iThenticate-u, zajedno sa njihovim Id-jevima. Potrebno je da pronađemo časopis čiji Id želimo da unesemo u bazu.-->
+<!--                    klikom -->
+<!---->
+<!---->
+<!--                </p>-->
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss = "modal">Zatvori</button>

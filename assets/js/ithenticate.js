@@ -25,7 +25,7 @@ if (window.location.pathname.split("/").pop() === 'ithenticate.php') {
                         console.log(niz);
                         response = JSON.parse(response);
                         $("#sending").html("Šaljem dokument " + (i + 1) + " od " + length);
-                        $("#rezultati").append('<p>' + niz[2] + ' ' + niz[3] + ' - ' + niz[1] + '<span class="element">' + ': ' + response[0] + '</span>' + '<span class="report"></span></p>');
+                        $("#rezultati").append('<p><strong>' + niz[0]+'</strong> - ' + niz[2] + ' ' + niz[3] + ' - ' + niz[1] + '<span class="element">' + ': ' + response[0] + '</span>' + '<span class="report"></span></p>');
                         console.log(response);
                         docIds.push(response);
 

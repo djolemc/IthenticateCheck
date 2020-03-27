@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../OO_PHP/.idea/OO_PHP.iml" filepath="$PROJECT_DIR$/../OO_PHP/.idea/OO_PHP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UdemyKurs/.idea/UdemyKurs.iml" filepath="$PROJECT_DIR$/../UdemyKurs/.idea/UdemyKurs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../phpcrud/.idea/phpcrud.iml" filepath="$PROJECT_DIR$/../phpcrud/.idea/phpcrud.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/plagijarizam2.iml" filepath="$PROJECT_DIR$/.idea/plagijarizam2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../project_simone/.idea/project_simone.iml" filepath="$PROJECT_DIR$/../project_simone/.idea/project_simone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../prophp/.idea/prophp.iml" filepath="$PROJECT_DIR$/../prophp/.idea/prophp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../restapi/.idea/restapi.iml" filepath="$PROJECT_DIR$/../restapi/.idea/restapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../talkingspace/.idea/talkingspace.iml" filepath="$PROJECT_DIR$/../talkingspace/.idea/talkingspace.iml" />
     </modules>
   </component>
 </project>
